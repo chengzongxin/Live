@@ -17,6 +17,10 @@
 		141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B51EBC7DE900065D86 /* Live.storyboard */; };
 		141D67B81EBC7E2700065D86 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B71EBC7E2700065D86 /* Profile.storyboard */; };
 		141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141D67BA1EBC7F1500065D86 /* MainViewController.m */; };
+		1428B7C01EBCA04A00D072B7 /* UITabBar+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7BF1EBCA04900D072B7 /* UITabBar+Swizzling.m */; };
+		1428B7C31EBCA4EF00D072B7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */; };
+		1428B7C61EBCA4F900D072B7 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C51EBCA4F900D072B7 /* LiveViewController.m */; };
+		1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C81EBCA50200D072B7 /* ProfileViewController.m */; };
 		2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C63CC0ABC62F08BC68704 /* libPods-Live.a */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,14 @@
 		141D67B71EBC7E2700065D86 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		141D67B91EBC7F1500065D86 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		141D67BA1EBC7F1500065D86 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		1428B7BE1EBCA04900D072B7 /* UITabBar+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Swizzling.h"; sourceTree = "<group>"; };
+		1428B7BF1EBCA04900D072B7 /* UITabBar+Swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+Swizzling.m"; sourceTree = "<group>"; };
+		1428B7C11EBCA4EF00D072B7 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		1428B7C41EBCA4F900D072B7 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
+		1428B7C51EBCA4F900D072B7 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
+		1428B7C71EBCA50200D072B7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		1428B7C81EBCA50200D072B7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
 		C36C63CC0ABC62F08BC68704 /* libPods-Live.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Live.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB71E0D37D30FC3B3179BCA1 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +111,7 @@
 		141D679F1EBC7A5F00065D86 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1428B7BD1EBCA03E00D072B7 /* Common */,
 				141D67A81EBC7A5F00065D86 /* Main(主要) */,
 				141D67A01EBC7A5F00065D86 /* Home(首页) */,
 				141D67A41EBC7A5F00065D86 /* Live(直播) */,
@@ -123,6 +136,8 @@
 		141D67A11EBC7A5F00065D86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1428B7C11EBCA4EF00D072B7 /* HomeViewController.h */,
+				1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -156,6 +171,8 @@
 		141D67A51EBC7A5F00065D86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1428B7C41EBCA4F900D072B7 /* LiveViewController.h */,
+				1428B7C51EBCA4F900D072B7 /* LiveViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -223,6 +240,8 @@
 		141D67AD1EBC7A5F00065D86 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1428B7C71EBCA50200D072B7 /* ProfileViewController.h */,
+				1428B7C81EBCA50200D072B7 /* ProfileViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -247,6 +266,15 @@
 			);
 			name = "Tools(工具)";
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		1428B7BD1EBCA03E00D072B7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				1428B7BE1EBCA04900D072B7 /* UITabBar+Swizzling.h */,
+				1428B7BF1EBCA04900D072B7 /* UITabBar+Swizzling.m */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		3516CD14D739A3BD625B3B32 /* Frameworks */ = {
@@ -392,9 +420,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				141D67901EBC723700065D86 /* ViewController.m in Sources */,
+				1428B7C01EBCA04A00D072B7 /* UITabBar+Swizzling.m in Sources */,
+				1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */,
 				141D678D1EBC723700065D86 /* AppDelegate.m in Sources */,
 				141D678A1EBC723700065D86 /* main.m in Sources */,
 				141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */,
+				1428B7C31EBCA4EF00D072B7 /* HomeViewController.m in Sources */,
+				1428B7C61EBCA4F900D072B7 /* LiveViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
