@@ -13,6 +13,10 @@
 		141D67931EBC723700065D86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67911EBC723700065D86 /* Main.storyboard */; };
 		141D67951EBC723700065D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141D67941EBC723700065D86 /* Assets.xcassets */; };
 		141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67961EBC723700065D86 /* LaunchScreen.storyboard */; };
+		141D67B21EBC7D7500065D86 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B11EBC7D7500065D86 /* Home.storyboard */; };
+		141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B51EBC7DE900065D86 /* Live.storyboard */; };
+		141D67B81EBC7E2700065D86 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B71EBC7E2700065D86 /* Profile.storyboard */; };
+		141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141D67BA1EBC7F1500065D86 /* MainViewController.m */; };
 		2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C63CC0ABC62F08BC68704 /* libPods-Live.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +31,11 @@
 		141D67941EBC723700065D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141D67971EBC723700065D86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141D67991EBC723700065D86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		141D67B11EBC7D7500065D86 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		141D67B51EBC7DE900065D86 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
+		141D67B71EBC7E2700065D86 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		141D67B91EBC7F1500065D86 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		141D67BA1EBC7F1500065D86 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
 		C36C63CC0ABC62F08BC68704 /* libPods-Live.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Live.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB71E0D37D30FC3B3179BCA1 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
@@ -65,6 +74,7 @@
 		141D67871EBC723700065D86 /* Live */ = {
 			isa = PBXGroup;
 			children = (
+				141D679F1EBC7A5F00065D86 /* Classes */,
 				141D678B1EBC723700065D86 /* AppDelegate.h */,
 				141D678C1EBC723700065D86 /* AppDelegate.m */,
 				141D678E1EBC723700065D86 /* ViewController.h */,
@@ -84,6 +94,159 @@
 				141D67891EBC723700065D86 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		141D679F1EBC7A5F00065D86 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				141D67A81EBC7A5F00065D86 /* Main(主要) */,
+				141D67A01EBC7A5F00065D86 /* Home(首页) */,
+				141D67A41EBC7A5F00065D86 /* Live(直播) */,
+				141D67AC1EBC7A5F00065D86 /* Profile(我的) */,
+				141D67B01EBC7A5F00065D86 /* Tools(工具) */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		141D67A01EBC7A5F00065D86 /* Home(首页) */ = {
+			isa = PBXGroup;
+			children = (
+				141D67B11EBC7D7500065D86 /* Home.storyboard */,
+				141D67A11EBC7A5F00065D86 /* Controller */,
+				141D67A21EBC7A5F00065D86 /* Model */,
+				141D67A31EBC7A5F00065D86 /* View */,
+			);
+			name = "Home(首页)";
+			path = Home;
+			sourceTree = "<group>";
+		};
+		141D67A11EBC7A5F00065D86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		141D67A21EBC7A5F00065D86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		141D67A31EBC7A5F00065D86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		141D67A41EBC7A5F00065D86 /* Live(直播) */ = {
+			isa = PBXGroup;
+			children = (
+				141D67B51EBC7DE900065D86 /* Live.storyboard */,
+				141D67A51EBC7A5F00065D86 /* Controller */,
+				141D67A61EBC7A5F00065D86 /* Model */,
+				141D67A71EBC7A5F00065D86 /* View */,
+			);
+			name = "Live(直播)";
+			path = Live;
+			sourceTree = "<group>";
+		};
+		141D67A51EBC7A5F00065D86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		141D67A61EBC7A5F00065D86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		141D67A71EBC7A5F00065D86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		141D67A81EBC7A5F00065D86 /* Main(主要) */ = {
+			isa = PBXGroup;
+			children = (
+				141D67A91EBC7A5F00065D86 /* Controller */,
+				141D67AA1EBC7A5F00065D86 /* Model */,
+				141D67AB1EBC7A5F00065D86 /* View */,
+			);
+			name = "Main(主要)";
+			path = Main;
+			sourceTree = "<group>";
+		};
+		141D67A91EBC7A5F00065D86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				141D67B91EBC7F1500065D86 /* MainViewController.h */,
+				141D67BA1EBC7F1500065D86 /* MainViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		141D67AA1EBC7A5F00065D86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		141D67AB1EBC7A5F00065D86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		141D67AC1EBC7A5F00065D86 /* Profile(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				141D67B71EBC7E2700065D86 /* Profile.storyboard */,
+				141D67AD1EBC7A5F00065D86 /* Controller */,
+				141D67AE1EBC7A5F00065D86 /* Model */,
+				141D67AF1EBC7A5F00065D86 /* View */,
+			);
+			name = "Profile(我的)";
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		141D67AD1EBC7A5F00065D86 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		141D67AE1EBC7A5F00065D86 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		141D67AF1EBC7A5F00065D86 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		141D67B01EBC7A5F00065D86 /* Tools(工具) */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Tools(工具)";
+			path = Tools;
 			sourceTree = "<group>";
 		};
 		3516CD14D739A3BD625B3B32 /* Frameworks */ = {
@@ -164,9 +327,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				141D67B81EBC7E2700065D86 /* Profile.storyboard in Resources */,
 				141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */,
 				141D67951EBC723700065D86 /* Assets.xcassets in Resources */,
 				141D67931EBC723700065D86 /* Main.storyboard in Resources */,
+				141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */,
+				141D67B21EBC7D7500065D86 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +394,7 @@
 				141D67901EBC723700065D86 /* ViewController.m in Sources */,
 				141D678D1EBC723700065D86 /* AppDelegate.m in Sources */,
 				141D678A1EBC723700065D86 /* main.m in Sources */,
+				141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +551,7 @@
 				141D679E1EBC723700065D86 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

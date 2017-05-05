@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 设置Tabbar全局颜色
+    [UITabBar appearance].tintColor = [UIColor orangeColor];
+    
     return YES;
 }
 
