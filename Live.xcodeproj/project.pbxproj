@@ -13,6 +13,7 @@
 		141D67931EBC723700065D86 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67911EBC723700065D86 /* Main.storyboard */; };
 		141D67951EBC723700065D86 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 141D67941EBC723700065D86 /* Assets.xcassets */; };
 		141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67961EBC723700065D86 /* LaunchScreen.storyboard */; };
+		2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C63CC0ABC62F08BC68704 /* libPods-Live.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		141D67941EBC723700065D86 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		141D67971EBC723700065D86 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		141D67991EBC723700065D86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
+		C36C63CC0ABC62F08BC68704 /* libPods-Live.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Live.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB71E0D37D30FC3B3179BCA1 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				141D67871EBC723700065D86 /* Live */,
 				141D67861EBC723700065D86 /* Products */,
+				690DCB9650B376595EAA890D /* Pods */,
+				3516CD14D739A3BD625B3B32 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +86,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		3516CD14D739A3BD625B3B32 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C36C63CC0ABC62F08BC68704 /* libPods-Live.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		690DCB9650B376595EAA890D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */,
+				EB71E0D37D30FC3B3179BCA1 /* Pods-Live.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 141D679C1EBC723700065D86 /* Build configuration list for PBXNativeTarget "Live" */;
 			buildPhases = (
+				9EE1D1E07DF2E3EF4C088EB3 /* [CP] Check Pods Manifest.lock */,
 				141D67811EBC723700065D86 /* Sources */,
 				141D67821EBC723700065D86 /* Frameworks */,
 				141D67831EBC723700065D86 /* Resources */,
+				50ECB191AFD356C9F6F9673C /* [CP] Embed Pods Frameworks */,
+				C7D31585D756CCD01FBEF705 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,6 +171,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		50ECB191AFD356C9F6F9673C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Live/Pods-Live-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9EE1D1E07DF2E3EF4C088EB3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7D31585D756CCD01FBEF705 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Live/Pods-Live-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		141D67811EBC723700065D86 /* Sources */ = {
@@ -268,6 +343,7 @@
 		};
 		141D679D1EBC723700065D86 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Live/Info.plist;
@@ -279,6 +355,7 @@
 		};
 		141D679E1EBC723700065D86 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EB71E0D37D30FC3B3179BCA1 /* Pods-Live.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Live/Info.plist;
