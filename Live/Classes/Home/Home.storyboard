@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="9Im-cd-COe">
             <objects>
-                <viewController id="VGk-DO-s14" sceneMemberID="viewController">
+                <viewController id="VGk-DO-s14" customClass="HomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BgH-dS-P8f"/>
                         <viewControllerLayoutGuide type="bottom" id="XhQ-Yp-mdX"/>
@@ -35,7 +35,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="x3p-A4-9tf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIi-9d-MN8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bIi-9d-MN8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

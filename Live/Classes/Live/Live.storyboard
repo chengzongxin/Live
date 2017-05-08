@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Live View Controller-->
         <scene sceneID="TaA-RX-xqV">
             <objects>
-                <viewController id="tjj-aD-rhk" sceneMemberID="viewController">
+                <viewController id="tjj-aD-rhk" customClass="LiveViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UlE-hy-hma"/>
                         <viewControllerLayoutGuide type="bottom" id="2OE-t9-3vP"/>
