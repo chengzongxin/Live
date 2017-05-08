@@ -1,0 +1,67 @@
+//
+//  PrefixHeader.pch
+//  Live
+//
+//  Created by Cheng on 2017/5/8.
+//  Copyright © 2017年 Joe. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#import <Masonry.h>
+#import "UIColor+Extend.h"
+#import "UIBarButtonItem+Extend.h"
+
+#define IS_IPHONE4      ([[UIScreen mainScreen] bounds].size.height == 480 ? YES : NO)
+#define IS_IPHONE5      ([[UIScreen mainScreen] bounds].size.height == 568 ? YES : NO)
+#define IS_IPHONE6      ([[UIScreen mainScreen] bounds].size.height == 667 ? YES : NO)
+#define IS_IPHONE6PLUS  ([[UIScreen mainScreen] bounds].size.height == 736 ? YES : NO)
+
+#define ScreenSize      [UIScreen mainScreen].bounds.size
+#define ScreenWith      [UIScreen mainScreen].bounds.size.width
+#define ScreenHeight    [UIScreen mainScreen].bounds.size.height
+
+#ifdef DEBUG //调试状态
+#define MYLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define MYLogFun        NSLog((@"%s [Line %d] "), __FUNCTION__, __LINE__)
+#else
+#define MYLog(...)      NSLog(...)
+//#define NSLog(...)
+#endif
+
+
+//  单例
+
+/*
+ .h  singleton_interface(ClassName)
+ .m  singleton_implementation(ClassName)
+ eg. [Class shareInstance]
+ */
+#define singleton_interface(class) + (class *)shareInstance;
+
+#define singleton_implementation(class)\
+\
+static class *_instance;\
++ (class *)shareInstance\
+{\
+if (_instance == nil) {\
+_instance = [[self alloc] init];\
+}\
+return _instance;\
+}\
+\
++ (class *)allocWithZone:(struct _NSZone *)zone\
+{\
+static dispatch_once_t onceToken;\
+dispatch_once(&onceToken, ^{\
+_instance = [super allocWithZone:zone];\
+});\
+return _instance;\
+}
+
+
+#endif /* PrefixHeader_pch */

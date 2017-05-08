@@ -20,7 +20,6 @@
                     <view key="view" contentMode="scaleToFill" id="YYo-yy-72y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.63302960379999995" blue="0.1400433187" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="6DW-5T-CVe"/>
                 </viewController>

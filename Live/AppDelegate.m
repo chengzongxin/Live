@@ -22,7 +22,7 @@
     [UITabBar appearance].tintColor = [UIColor orangeColor];
     // 修改导航栏样式
     [UINavigationBar appearance].translucent = NO;
-    [UINavigationBar appearance].barTintColor = [UIColor orangeColor];
+//    [UINavigationBar appearance].barTintColor = [UIColor orangeColor];
     
     return YES;
 }

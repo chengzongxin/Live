@@ -33,7 +33,7 @@
 //    if (![vc isKindOfClass:[LiveViewController class]]) {
         [vc.tabBarItem setTitle:title];
 //    }
-    
+    vc.view.backgroundColor = [UIColor randomColor];
     vc.navigationController.delegate = self;
     vc.tabBarItem.image = [[UIImage imageNamed:normalImg] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     vc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImg] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
