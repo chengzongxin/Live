@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+
+@interface ColorRGB : NSObject
+@property (nonatomic,assign) double red;
+@property (nonatomic,assign) double green;
+@property (nonatomic,assign) double blue;
+
+@end
+
 @class PageTitleView;
 
 @protocol PageTitleViewDelegate <NSObject>
@@ -28,5 +36,7 @@
 @property (nonatomic,assign) BOOL isScrollEnale;
 
 - (instancetype)initWithFrame:(CGRect)frame titles:(NSArray *)titles isScrollEnable:(BOOL)enable;
+
+- (void)setCurrentTitleSourceIndex:(int)sourceIndex targetIndex:(int)targetIndex progress:(CGFloat)progress;
 
 @end

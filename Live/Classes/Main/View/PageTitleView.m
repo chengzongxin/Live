@@ -8,16 +8,27 @@
 
 #import "PageTitleView.h"
 #define kScrollLineH 2
-#define kSelectTitleColor [UIColor orangeColor]
-#define kNormalTitleColor [UIColor blackColor]
+#define kSelectTitleColor [UIColor colorWithRed:255/255.0 green:128/255.0 blue:0/255.0 alpha:1.0];
+#define kNormalTitleColor [UIColor colorWithRed:85/255.0 green:85/255.0 blue:85/255.0 alpha:1.0];
+
+@implementation ColorRGB
+
+@end
+
 
 @interface PageTitleView ()
 {
     NSMutableArray *_titleLabelArray;
     int _currentIndex;
+    ColorRGB *_deltaRGB;
+    ColorRGB *_selectRGB;
+    ColorRGB *_normalRGB;
 }
 @property (nonatomic,retain) NSMutableArray *titleLabelArray;
 @property (nonatomic,assign) int currentIndex;
+@property (nonatomic,retain) ColorRGB *deltaRGB;
+@property (nonatomic,retain) ColorRGB *selectRGB;
+@property (nonatomic,retain) ColorRGB *normalRGB;
 @end
 
 @implementation PageTitleView
@@ -43,6 +54,51 @@
         _titleLabelArray = [NSMutableArray array];
     }
     return _titleLabelArray;
+}
+
+- (ColorRGB *)deltaRGB
+{
+    if (!_deltaRGB) {
+        _deltaRGB = [[ColorRGB alloc] init];
+        
+        UIColor *selectColor = kSelectTitleColor;
+        UIColor *normalColor = kNormalTitleColor;
+        double selectRed,selectGreen,selectBlue,alpha;
+        double normalRed,normalGreen,normalBlue;
+        double deltaRed,deltaGreen,deltaBlue;
+        [selectColor getRed:&selectRed green:&selectGreen blue:&selectBlue alpha:&alpha];
+        [normalColor getRed:&normalRed green:&normalGreen blue:&normalBlue alpha:&alpha];
+        deltaRed = selectRed - normalRed;
+        deltaGreen = selectGreen - normalGreen;
+        deltaBlue = selectBlue - normalBlue;
+        
+        _deltaRGB.red = deltaRed;
+        _deltaRGB.green = deltaGreen;
+        _deltaRGB.blue = deltaBlue;
+    }
+    return _deltaRGB;
+}
+
+- (ColorRGB *)normalRGB
+{
+    if (!_normalRGB) {
+        _normalRGB = [[ColorRGB alloc] init];
+        _normalRGB.red = 85;
+        _normalRGB.green = 85;
+        _normalRGB.blue = 85;
+    }
+    return _normalRGB;
+}
+
+- (ColorRGB *)selectRGB
+{
+    if (!_selectRGB) {
+        _selectRGB = [[ColorRGB alloc] init];
+        _selectRGB.red = 255;
+        _selectRGB.green = 128;
+        _selectRGB.blue = 0;
+    }
+    return _normalRGB;
 }
 
 
@@ -152,5 +208,33 @@
     // 4.记录index
     _currentIndex = index;
 }
+
+- (void)setCurrentTitleSourceIndex:(int)sourceIndex targetIndex:(int)targetIndex progress:(CGFloat)progress
+{
+    // 1.取出两个Label
+    UILabel *sourceLabel = _titleLabelArray[sourceIndex];
+    UILabel *targetLabel = _titleLabelArray[targetIndex];
+    
+    // 2.移动scrollLine
+    CGFloat moveMargin = targetLabel.frame.origin.x - sourceLabel.frame.origin.x;
+    CGRect frame = self.scrollLine.frame;
+    frame.origin.x = sourceLabel.frame.origin.x + moveMargin * progress;
+    self.scrollLine.frame = frame;
+    
+    // 3.颜色渐变
+    sourceLabel.textColor = [UIColor colorWithRed:(_selectRGB.red - _deltaRGB.red * progress)/255.0  green:(_selectRGB.green - _deltaRGB.green * progress)/255.0 blue:(_selectRGB.blue - _deltaRGB.blue * progress)/255.0 alpha:1.0];
+    targetLabel.textColor = [UIColor colorWithRed:(_normalRGB.red + _deltaRGB.red * progress)/255.0  green:(_normalRGB.green + _deltaRGB.green * progress)/255.0 blue:(_normalRGB.blue + _deltaRGB.blue * progress)/255.0 alpha:1.0];
+    
+}
+
+// swift
+
+//    kNormalRGB : (CGFloat, CGFloat, CGFloat) = (85, 85, 85);
+//    private let kSelectRGB : (CGFloat, CGFloat, CGFloat) = (255, 128, 0)
+//    private let kDeltaRGB = (kSelectRGB.0 - kNormalRGB.0, kSelectRGB.1 - kNormalRGB.1, kSelectRGB.2 - kNormalRGB.2)
+//    private let kNormalTitleColor = UIColor(red: 85/255.0, green: 85/255.0, blue: 85/255.0, alpha: 1.0)
+//    private let kSelectTitleColor = UIColor(red: 255.0/255.0, green: 128/255.0, blue: 0/255.0, alpha: 1.0)
+//    sourceLabel.textColor = UIColor(red: (kSelectRGB.0 - kDeltaRGB.0 * progress) / 255.0, green: (kSelectRGB.1 - kDeltaRGB.1 * progress) / 255.0, blue: (kSelectRGB.2 - kDeltaRGB.2 * progress) / 255.0, alpha: 1.0)
+//    targetLabel.textColor = UIColor(red: (kNormalRGB.0 + kDeltaRGB.0 * progress)/255.0, green: (kNormalRGB.1 + kDeltaRGB.1 * progress)/255.0, blue: (kNormalRGB.2 + kDeltaRGB.2 * progress)/255.0, alpha: 1.0)
 
 @end

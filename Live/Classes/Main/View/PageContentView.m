@@ -12,6 +12,7 @@
 @interface PageContentView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 {
     UICollectionView *_collectionView;
+    CGFloat startOffsetX;
 }
 @property (nonatomic,retain) UICollectionView *collectionView;
 @end
@@ -98,4 +99,47 @@
     [self.collectionView setContentOffset:offset animated:YES];
 }
 
+#pragma mark - CollectionView代理方法
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    startOffsetX = scrollView.contentOffset.x;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    // 1.定义要获取的内容
+    int sourceIndex = 0;
+    int targetIndex = 0;
+    CGFloat progress = 0.0f;
+    
+    // 2.获取进度
+    CGFloat offsetX = scrollView.contentOffset.x;
+    CGFloat ratio = offsetX / scrollView.bounds.size.width;
+    progress = ratio - floor(ratio);
+    
+    // 3.判断滑动的方向
+    if (offsetX > startOffsetX) { // 向左滑动
+        sourceIndex = (int)offsetX / scrollView.bounds.size.width;
+        targetIndex = sourceIndex + 1;
+        if (targetIndex >= self.childVcs.count) {
+            targetIndex = (int)self.childVcs.count - 1;
+        }
+        if (offsetX - startOffsetX == scrollView.bounds.size.width) {
+            progress = 1.0;
+            targetIndex = sourceIndex;
+        }
+    } else  { // 向右滑动
+        targetIndex = (int)offsetX / scrollView.bounds.size.width;
+        sourceIndex = targetIndex + 1;
+        if (sourceIndex >= self.childVcs.count) {
+            sourceIndex = (int)self.childVcs.count - 1;
+        }
+        progress = 1 - progress;
+    }
+    
+    // 4.通知代理
+    if ([_delegate respondsToSelector:@selector(didScrollPageContentView:sourceIndex:targetIndex:progress:)]) {
+        [_delegate didScrollPageContentView:self sourceIndex:sourceIndex targetIndex:targetIndex progress:progress];
+    }
+}
 @end

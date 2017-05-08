@@ -11,7 +11,7 @@
 #import "PageContentView.h"
 #define kPageTitleViewH 44
 
-@interface HomeViewController ()<PageTitleViewDelegate>
+@interface HomeViewController ()<PageTitleViewDelegate,PageContentViewDelegate>
 {
     PageTitleView *_pageTitleView;
     PageContentView *_pageContentView;
@@ -97,12 +97,18 @@
     }
     CGRect frame = CGRectMake(0, kPageTitleViewH, ScreenWith, ScreenHeight - 64 - kPageTitleViewH);
     _pageContentView = [[PageContentView alloc] initWithFrame:frame childViewControllers:vcArry parentViewController:self];
+    _pageContentView.delegate = self;
     [self.view addSubview:_pageContentView];
 }
 
 - (void)didSelectTitleView:(PageTitleView *)pageTitleView index:(int)index
 {
     [_pageContentView scrollToIndex:index];
+}
+
+- (void)didScrollPageContentView:(PageContentView *)pageContentView sourceIndex:(int)sourceIndex targetIndex:(int)targetIndex progress:(CGFloat)progress
+{
+    [_pageTitleView setCurrentTitleSourceIndex:sourceIndex targetIndex:targetIndex progress:progress];
 }
 
 @end
