@@ -108,42 +108,42 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     //  判断，只有手指拖动才触发titleview的滚动，titleView点击不产生这个方法，以免titleview点击后和pageview代理产生两次点击bug
-    if (!self.collectionView.dragging) return;
-    MYLogFun;
-    // 1.定义要获取的内容
-    int sourceIndex = 0;
-    int targetIndex = 0;
-    CGFloat progress = 0.0f;
-    
-    // 2.获取进度
-    CGFloat offsetX = scrollView.contentOffset.x;
-    CGFloat ratio = offsetX / scrollView.bounds.size.width;
-    progress = ratio - floor(ratio);
-    
-    // 3.判断滑动的方向
-    if (offsetX > startOffsetX) { // 向左滑动
-        sourceIndex = (int)offsetX / scrollView.bounds.size.width;
-        targetIndex = sourceIndex + 1;
-        if (targetIndex >= self.childVcs.count) {
-            targetIndex = (int)self.childVcs.count - 1;
+    if (self.collectionView.dragging || self.collectionView.decelerating){
+        // 1.定义要获取的内容
+        int sourceIndex = 0;
+        int targetIndex = 0;
+        CGFloat progress = 0.0f;
+        
+        // 2.获取进度
+        CGFloat offsetX = scrollView.contentOffset.x;
+        CGFloat ratio = offsetX / scrollView.bounds.size.width;
+        progress = ratio - floor(ratio);
+        
+        // 3.判断滑动的方向
+        if (offsetX > startOffsetX) { // 向左滑动
+            sourceIndex = (int)offsetX / scrollView.bounds.size.width;
+            targetIndex = sourceIndex + 1;
+            if (targetIndex >= self.childVcs.count) {
+                targetIndex = (int)self.childVcs.count - 1;
+            }
+            if (offsetX - startOffsetX == scrollView.bounds.size.width) {
+                progress = 1.0;
+                targetIndex = sourceIndex;
+            }
+        } else  { // 向右滑动
+            targetIndex = (int)offsetX / scrollView.bounds.size.width;
+            sourceIndex = targetIndex + 1;
+            if (sourceIndex >= self.childVcs.count) {
+                sourceIndex = (int)self.childVcs.count - 1;
+            }
+            progress = 1 - progress;
         }
-        if (offsetX - startOffsetX == scrollView.bounds.size.width) {
-            progress = 1.0;
-            targetIndex = sourceIndex;
+        
+        // 4.通知代理
+        
+        if ([_delegate respondsToSelector:@selector(didScrollPageContentView:sourceIndex:targetIndex:progress:)]) {
+            [_delegate didScrollPageContentView:self sourceIndex:sourceIndex targetIndex:targetIndex progress:progress];
         }
-    } else  { // 向右滑动
-        targetIndex = (int)offsetX / scrollView.bounds.size.width;
-        sourceIndex = targetIndex + 1;
-        if (sourceIndex >= self.childVcs.count) {
-            sourceIndex = (int)self.childVcs.count - 1;
-        }
-        progress = 1 - progress;
-    }
-    
-    // 4.通知代理
-    
-    if ([_delegate respondsToSelector:@selector(didScrollPageContentView:sourceIndex:targetIndex:progress:)]) {
-        [_delegate didScrollPageContentView:self sourceIndex:sourceIndex targetIndex:targetIndex progress:progress];
     }
 }
 @end
