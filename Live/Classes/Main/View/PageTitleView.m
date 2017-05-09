@@ -221,7 +221,7 @@
     // 2.移动scrollLine
     CGFloat moveMargin = targetLabel.frame.origin.x - sourceLabel.frame.origin.x;
     CGRect frame = self.scrollLine.frame;
-    frame.origin.x = sourceLabel.frame.origin.x + moveMargin;// * progress;
+    frame.origin.x = sourceLabel.frame.origin.x + moveMargin * progress;
     [UIView animateWithDuration:0.15 animations:^{
         self.scrollLine.frame = frame;
     }];

@@ -105,8 +105,11 @@
     startOffsetX = scrollView.contentOffset.x;
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
+    //  判断，只有手指拖动才触发titleview的滚动，titleView点击不产生这个方法，以免titleview点击后和pageview代理产生两次点击bug
+    if (!self.collectionView.dragging) return;
+    MYLogFun;
     // 1.定义要获取的内容
     int sourceIndex = 0;
     int targetIndex = 0;
@@ -138,6 +141,7 @@
     }
     
     // 4.通知代理
+    
     if ([_delegate respondsToSelector:@selector(didScrollPageContentView:sourceIndex:targetIndex:progress:)]) {
         [_delegate didScrollPageContentView:self sourceIndex:sourceIndex targetIndex:targetIndex progress:progress];
     }
