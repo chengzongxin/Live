@@ -9,6 +9,7 @@
 #import "HomeViewController.h"
 #import "PageTitleView.h"
 #import "PageContentView.h"
+#import "RecommendViewController.h"
 #define kPageTitleViewH 44
 
 @interface HomeViewController ()<PageTitleViewDelegate,PageContentViewDelegate>
@@ -89,8 +90,10 @@
 
 - (void)addPageContentView
 {
+    RecommendViewController *recommendVc = [[RecommendViewController alloc] init];
     NSMutableArray *vcArry = [NSMutableArray array];
-    for (int i = 0; i < 4; i++) {
+    [vcArry addObject:recommendVc];
+    for (int i = 0; i < 3; i++) {
         UIViewController *vc = [[UIViewController alloc] init];
         vc.view.backgroundColor = [UIColor randomColor];
         [vcArry addObject:vc];

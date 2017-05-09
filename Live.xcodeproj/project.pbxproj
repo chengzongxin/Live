@@ -20,6 +20,11 @@
 		1428B7C31EBCA4EF00D072B7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */; };
 		1428B7C61EBCA4F900D072B7 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C51EBCA4F900D072B7 /* LiveViewController.m */; };
 		1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C81EBCA50200D072B7 /* ProfileViewController.m */; };
+		146337611EC17481007A7440 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337601EC17481007A7440 /* RecommendViewController.m */; };
+		146337651EC194F8007A7440 /* RecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337631EC194F8007A7440 /* RecommendHeaderView.m */; };
+		146337661EC194F8007A7440 /* RecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146337641EC194F8007A7440 /* RecommendHeaderView.xib */; };
+		1463376F1EC1A216007A7440 /* RecommendFooterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1463376D1EC1A216007A7440 /* RecommendFooterView.m */; };
+		146337701EC1A216007A7440 /* RecommendFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1463376E1EC1A216007A7440 /* RecommendFooterView.xib */; };
 		146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6A1EC0223600974785 /* UIBarButtonItem+Extend.m */; };
 		146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6D1EC022CD00974785 /* UIColor+Extend.m */; };
 		146B2D731EC04DB400974785 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D721EC04DB400974785 /* PageTitleView.m */; };
@@ -49,6 +54,14 @@
 		1428B7C51EBCA4F900D072B7 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
 		1428B7C71EBCA50200D072B7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		1428B7C81EBCA50200D072B7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		1463375F1EC17481007A7440 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
+		146337601EC17481007A7440 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
+		146337621EC194F8007A7440 /* RecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHeaderView.h; sourceTree = "<group>"; };
+		146337631EC194F8007A7440 /* RecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHeaderView.m; sourceTree = "<group>"; };
+		146337641EC194F8007A7440 /* RecommendHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendHeaderView.xib; sourceTree = "<group>"; };
+		1463376C1EC1A216007A7440 /* RecommendFooterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendFooterView.h; sourceTree = "<group>"; };
+		1463376D1EC1A216007A7440 /* RecommendFooterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendFooterView.m; sourceTree = "<group>"; };
+		1463376E1EC1A216007A7440 /* RecommendFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendFooterView.xib; sourceTree = "<group>"; };
 		146B2D691EC0223600974785 /* UIBarButtonItem+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extend.h"; sourceTree = "<group>"; };
 		146B2D6A1EC0223600974785 /* UIBarButtonItem+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extend.m"; sourceTree = "<group>"; };
 		146B2D6C1EC022CD00974785 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
@@ -147,6 +160,8 @@
 			children = (
 				1428B7C11EBCA4EF00D072B7 /* HomeViewController.h */,
 				1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */,
+				1463375F1EC17481007A7440 /* RecommendViewController.h */,
+				146337601EC17481007A7440 /* RecommendViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -161,6 +176,12 @@
 		141D67A31EBC7A5F00065D86 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				146337621EC194F8007A7440 /* RecommendHeaderView.h */,
+				146337631EC194F8007A7440 /* RecommendHeaderView.m */,
+				146337641EC194F8007A7440 /* RecommendHeaderView.xib */,
+				1463376C1EC1A216007A7440 /* RecommendFooterView.h */,
+				1463376D1EC1A216007A7440 /* RecommendFooterView.m */,
+				1463376E1EC1A216007A7440 /* RecommendFooterView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -376,6 +397,8 @@
 				141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */,
 				141D67951EBC723700065D86 /* Assets.xcassets in Resources */,
 				141D67931EBC723700065D86 /* Main.storyboard in Resources */,
+				146337701EC1A216007A7440 /* RecommendFooterView.xib in Resources */,
+				146337661EC194F8007A7440 /* RecommendHeaderView.xib in Resources */,
 				141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */,
 				141D67B21EBC7D7500065D86 /* Home.storyboard in Resources */,
 			);
@@ -440,7 +463,10 @@
 				1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */,
 				146B2D761EC0691700974785 /* PageContentView.m in Sources */,
 				141D678D1EBC723700065D86 /* AppDelegate.m in Sources */,
+				1463376F1EC1A216007A7440 /* RecommendFooterView.m in Sources */,
 				141D678A1EBC723700065D86 /* main.m in Sources */,
+				146337651EC194F8007A7440 /* RecommendHeaderView.m in Sources */,
+				146337611EC17481007A7440 /* RecommendViewController.m in Sources */,
 				146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */,
 				146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */,
 				141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */,
