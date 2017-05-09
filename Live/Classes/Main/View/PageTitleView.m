@@ -43,6 +43,8 @@
     
     self.backgroundColor = [UIColor whiteColor];
     
+    _currentIndex = 0;
+    
     [self setupUI];
     
     return self;
@@ -133,6 +135,7 @@
         label.tag = idx;
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont systemFontOfSize:16.0];
+        label.textColor = kNormalTitleColor;
         [self.titleLabelArray addObject:label];
         //  设置lable的frame
         CGFloat titleX = 0;
@@ -190,7 +193,7 @@
 
 - (void)scrollToIndex:(int)index
 {
-    // 1.获取最新的label和之前的label
+//     1.获取最新的label和之前的label
     UILabel *oldLabel = _titleLabelArray[_currentIndex];
     UILabel *newLabel = _titleLabelArray[index];
     
@@ -218,12 +221,19 @@
     // 2.移动scrollLine
     CGFloat moveMargin = targetLabel.frame.origin.x - sourceLabel.frame.origin.x;
     CGRect frame = self.scrollLine.frame;
-    frame.origin.x = sourceLabel.frame.origin.x + moveMargin * progress;
-    self.scrollLine.frame = frame;
+    frame.origin.x = sourceLabel.frame.origin.x + moveMargin;// * progress;
+    [UIView animateWithDuration:0.15 animations:^{
+        self.scrollLine.frame = frame;
+    }];
     
+    // 2.设置label的颜色
+    sourceLabel.textColor = kNormalTitleColor;
+    targetLabel.textColor = kSelectTitleColor;
+    
+    _currentIndex = targetIndex;
     // 3.颜色渐变
-    sourceLabel.textColor = [UIColor colorWithRed:(_selectRGB.red - _deltaRGB.red * progress)/255.0  green:(_selectRGB.green - _deltaRGB.green * progress)/255.0 blue:(_selectRGB.blue - _deltaRGB.blue * progress)/255.0 alpha:1.0];
-    targetLabel.textColor = [UIColor colorWithRed:(_normalRGB.red + _deltaRGB.red * progress)/255.0  green:(_normalRGB.green + _deltaRGB.green * progress)/255.0 blue:(_normalRGB.blue + _deltaRGB.blue * progress)/255.0 alpha:1.0];
+//    sourceLabel.textColor = [UIColor colorWithRed:(self.selectRGB.red - self.deltaRGB.red * progress)/255.0  green:(self.selectRGB.green - self.deltaRGB.green * progress)/255.0 blue:(self.selectRGB.blue - self.deltaRGB.blue * progress)/255.0 alpha:1.0];
+//    targetLabel.textColor = [UIColor colorWithRed:(self.normalRGB.red + self.deltaRGB.red * progress)/255.0  green:(self.normalRGB.green + self.deltaRGB.green * progress)/255.0 blue:(self.normalRGB.blue + self.deltaRGB.blue * progress)/255.0 alpha:1.0];
     
 }
 

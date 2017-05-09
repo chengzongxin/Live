@@ -105,7 +105,7 @@
     startOffsetX = scrollView.contentOffset.x;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset
 {
     // 1.定义要获取的内容
     int sourceIndex = 0;
