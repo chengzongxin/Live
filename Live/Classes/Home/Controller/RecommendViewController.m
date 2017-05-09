@@ -8,7 +8,6 @@
 
 #import "RecommendViewController.h"
 #import "RecommendHeaderView.h"
-#import "RecommendFooterView.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
@@ -20,6 +19,7 @@
     CGFloat kNormalItemH;
     CGFloat kPrettyItemH;
     CGFloat kHeaderViewH;
+    CGFloat kFooterViewH;
     
     UICollectionView *_collectionView;
 }
@@ -36,8 +36,9 @@
     kNormalItemH = kItemW * 3 / 4;
     kPrettyItemH = kItemW * 4 / 3;
     kHeaderViewH = 50;
+    kFooterViewH = 10;
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
     
     [self.view addSubview:self.collectionView];
 }
@@ -50,14 +51,15 @@
         layout.itemSize = CGSizeMake(kItemW, kNormalItemH);
         layout.minimumLineSpacing = 0;
         layout.minimumInteritemSpacing = kItemMargin;
-        layout.headerReferenceSize = CGSizeMake(ScreenWith, kHeaderViewH);
+        layout.headerReferenceSize = CGSizeMake(ScreenWith, kHeaderViewH);  //不设置foot、head的reference就不会产生实例对象
+        layout.footerReferenceSize = CGSizeMake(ScreenWith, kFooterViewH);
         layout.sectionInset = UIEdgeInsetsMake(0,kItemMargin,0,kItemMargin);
         // 2.创建UICollectionView
         _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         [_collectionView registerNib:[UINib nibWithNibName:@"RecommendHeaderView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kRecommendHeaderViewID];
-        [_collectionView registerNib:[UINib nibWithNibName:@"RecommendFooterView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kRecommendFooterViewID];
+        [_collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kRecommendFooterViewID];
         [_collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:kNormalCellID];
     }
     return _collectionView;
@@ -91,12 +93,11 @@
         reusableView = head;
     }
     
-//    if (kind == UICollectionElementKindSectionHeader) {
-//        RecommendFooterView *foot = (RecommendFooterView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kRecommendFooterViewID forIndexPath:indexPath];
-//
-//        reusableView = foot;
-//    }
-    
+    if (kind == UICollectionElementKindSectionFooter) {
+        UICollectionReusableView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kRecommendFooterViewID forIndexPath:indexPath];
+        foot.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
+        reusableView = foot;
+    }
     
     return reusableView;
 }
