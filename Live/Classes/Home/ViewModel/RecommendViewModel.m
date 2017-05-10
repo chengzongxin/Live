@@ -13,6 +13,7 @@
 #import "NSObject+Extend.h"
 #import "PrettyDataModel.h"
 #import "HotCareModel.h"
+#import "CycleModel.h"
 @interface RecommendViewModel()
 {
     NSMutableArray *_hotArray;
@@ -45,8 +46,7 @@
 //        MYLog(@"%@",responseObject);
         NSArray *data = responseObject[@"data"];
         for (NSDictionary *dict in data) {
-            BIgDataModel *bigDataModel = [[BIgDataModel alloc] init];
-            [bigDataModel setValuesForKeysWithDictionary:dict];
+            BIgDataModel *bigDataModel = [[BIgDataModel alloc] initWithDict:dict];
             [bigDataArray addObject:bigDataModel];
         }
         dispatch_group_leave(group);
@@ -59,10 +59,8 @@
     [NetWork requestDataMethod:GET WithUrl:NETWORK_PRETTY_DATA parameters:@{@"time" : timeStr,@"limit" : @"4",@"offset" : @"0"} success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *data = responseObject[@"data"];
         for (NSDictionary *dict in data) {
-            PrettyDataModel *prettyDataModel = [[PrettyDataModel alloc] init];
-            [prettyDataModel setValuesForKeysWithDictionary:dict];
+            PrettyDataModel *prettyDataModel = [[PrettyDataModel alloc] initWithDict:dict];
             [prettyArray addObject:prettyDataModel];
-            
         }
         dispatch_group_leave(group);
         MYLog(@"请求完成第2组数据");
@@ -71,11 +69,10 @@
     }];
     // 3.请求游戏数据
     dispatch_group_enter(group);
-    [NetWork requestDataMethod:GET WithUrl:NETWORK_HOT_DATA parameters:@{@"time" : timeStr,@"limit" : @"4",@"offset" : @"0"} success:^(NSURLSessionDataTask *task, id responseObject) {
+    [NetWork requestDataMethod:GET WithUrl:NETWORK_HOTCARE_DATA parameters:@{@"time" : timeStr,@"limit" : @"4",@"offset" : @"0"} success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *data = responseObject[@"data"];
         for (NSDictionary *dict in data) {
-            HotCareModel *hotCareModel = [[HotCareModel alloc] init];
-            [hotCareModel setValuesForKeysWithDictionary:dict];
+            HotCareModel *hotCareModel = [[HotCareModel alloc] initWithDict:dict];
             [hotArray addObject:hotCareModel];
         }
         dispatch_group_leave(group);
@@ -92,4 +89,19 @@
 }
 
 
++ (void)requestCycleData:(void(^)(NSArray *cycleArray))block
+{
+    NSMutableArray *array = [NSMutableArray array];
+    [NetWork requestDataMethod:GET WithUrl:NETWORK_CYCLEAD_DATA parameters:@{@"version":@"2.300"} success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *data = responseObject[@"data"];
+        for (NSDictionary *dict in data) {
+            CycleModel *cycleModel = [[CycleModel alloc] initWithDict:dict];
+            [array addObject:cycleModel];
+            MYLog(@"cylcemodel = %@",cycleModel);
+        }
+        block(array);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 @end

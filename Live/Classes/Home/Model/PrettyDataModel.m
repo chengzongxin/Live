@@ -9,5 +9,4 @@
 #import "PrettyDataModel.h"
 
 @implementation PrettyDataModel
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key{}
 @end

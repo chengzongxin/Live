@@ -10,6 +10,18 @@
 #import <objc/runtime.h>
 
 @implementation NSObject (Extend)
+
+- (instancetype)initWithDict:(NSDictionary *)dict
+{
+    self = [self init];
+    
+    [self setValuesForKeysWithDictionary:dict];
+    
+    return self;
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key{}
+
 /* 获取对象的所有属性，不包括属性值 */
 - (NSArray *)getAllProperties
 {

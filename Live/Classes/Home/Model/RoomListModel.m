@@ -9,5 +9,5 @@
 #import "RoomListModel.h"
 
 @implementation RoomListModel
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key{}
+
 @end

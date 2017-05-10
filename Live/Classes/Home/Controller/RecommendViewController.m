@@ -14,24 +14,27 @@
 #import "HotCareModel.h"
 #import "CollectionNormalCell.h"
 #import "CollectionPrettyCell.h"
+#import "RecommendCycleView.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
 #define kRecommendFooterViewID @"kRecommendFooterViewID"
+#define kCycleViewH 150
+#define kItemMargin 10
+#define kItemW ([UIScreen mainScreen].bounds.size.width - 3 * kItemMargin) / 2
+#define kNormalItemH kItemW * 3 / 4
+#define kPrettyItemH kItemW * 4 / 3
+#define kHeaderViewH 40
+#define kFooterViewH 10
 @interface RecommendViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
-    CGFloat kItemMargin;
-    CGFloat kItemW;
-    CGFloat kNormalItemH;
-    CGFloat kPrettyItemH;
-    CGFloat kHeaderViewH;
-    CGFloat kFooterViewH;
-    
     UICollectionView *_collectionView;
     NSArray *_bigDataArray;
     NSArray *_prettyArray;
     NSArray *_hotCareArray;
+    RecommendCycleView *_recommentCycleView;
 }
+@property (nonatomic,retain) RecommendCycleView *recommentCycleView;
 @property (nonatomic,retain) UICollectionView *collectionView;
 @property (nonatomic,copy) NSArray *bigDataArray;
 @property (nonatomic,copy) NSArray *prettyArray;
@@ -43,23 +46,34 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    kItemMargin = 10;
-    kItemW = ([UIScreen mainScreen].bounds.size.width - 3 * kItemMargin) / 2;
-    kNormalItemH = kItemW * 3 / 4;
-    kPrettyItemH = kItemW * 4 / 3;
-    kHeaderViewH = 40;
-    kFooterViewH = 10;
-    
+    // 初始化VC
     self.view.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
     
+    // 添加下面展示的推荐数据-collectionView
     [self.view addSubview:self.collectionView];
-    
+    // 在collectionView上面添加广告轮播
+    [_collectionView addSubview:self.recommentCycleView];
+    _collectionView.contentInset = UIEdgeInsetsMake(kCycleViewH, 0, 0, 0);
+    // 请求推荐数据
     [RecommendViewModel requestRecommendData:^(NSArray *bigDataArray, NSArray *prettyArray, NSArray *hotArray) {
         _bigDataArray = bigDataArray;
         _prettyArray = prettyArray;
         _hotCareArray = hotArray;
         [_collectionView reloadData];
     }];
+    // 请求轮播数据
+    [RecommendViewModel requestCycleData:^(NSArray *cycleArray) {
+        [self.recommentCycleView reloadDataWith:cycleArray];
+    }];
+}
+
+- (RecommendCycleView *)recommentCycleView
+{
+    if (!_recommentCycleView){
+        _recommentCycleView = [RecommendCycleView recommendCycleView];
+        _recommentCycleView.frame = CGRectMake(0, -kCycleViewH, ScreenWith, kCycleViewH);
+    }
+    return _recommentCycleView;
 }
 
 - (UICollectionView *)collectionView

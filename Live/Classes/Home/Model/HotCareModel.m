@@ -10,16 +10,6 @@
 
 @implementation HotCareModel
 
-- (instancetype)init
-{
-    self = [super init];
-    
-//    _room_list_array = [NSMutableArray array];
-    
-    return self;
-}
-
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key{}
 
 - (void)setValue:(id)value forKey:(NSString *)key{
     if ([key isEqualToString:@"room_list"]) {// list对应的key是数组，在数组里字典拆分为模型
