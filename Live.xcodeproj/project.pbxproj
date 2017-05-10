@@ -39,6 +39,10 @@
 		1466F5AE1EC2F60000AA238F /* CycleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466F5AD1EC2F60000AA238F /* CycleModel.m */; };
 		1466F5B21EC3004800AA238F /* CollectionCycleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466F5B01EC3004800AA238F /* CollectionCycleCell.m */; };
 		1466F5B31EC3004800AA238F /* CollectionCycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1466F5B11EC3004800AA238F /* CollectionCycleCell.xib */; };
+		1466F5B61EC31D7F00AA238F /* RecommendGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466F5B51EC31D7F00AA238F /* RecommendGameView.m */; };
+		1466F5B81EC31D8B00AA238F /* RecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1466F5B71EC31D8B00AA238F /* RecommendGameView.xib */; };
+		1466F5BC1EC32A0A00AA238F /* CollectionGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466F5BA1EC32A0A00AA238F /* CollectionGameCell.m */; };
+		1466F5BD1EC32A0A00AA238F /* CollectionGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1466F5BB1EC32A0A00AA238F /* CollectionGameCell.xib */; };
 		146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6A1EC0223600974785 /* UIBarButtonItem+Extend.m */; };
 		146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6D1EC022CD00974785 /* UIColor+Extend.m */; };
 		146B2D731EC04DB400974785 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D721EC04DB400974785 /* PageTitleView.m */; };
@@ -102,6 +106,12 @@
 		1466F5AF1EC3004800AA238F /* CollectionCycleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCycleCell.h; sourceTree = "<group>"; };
 		1466F5B01EC3004800AA238F /* CollectionCycleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCycleCell.m; sourceTree = "<group>"; };
 		1466F5B11EC3004800AA238F /* CollectionCycleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionCycleCell.xib; sourceTree = "<group>"; };
+		1466F5B41EC31D7F00AA238F /* RecommendGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendGameView.h; sourceTree = "<group>"; };
+		1466F5B51EC31D7F00AA238F /* RecommendGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendGameView.m; sourceTree = "<group>"; };
+		1466F5B71EC31D8B00AA238F /* RecommendGameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendGameView.xib; sourceTree = "<group>"; };
+		1466F5B91EC32A0A00AA238F /* CollectionGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionGameCell.h; sourceTree = "<group>"; };
+		1466F5BA1EC32A0A00AA238F /* CollectionGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionGameCell.m; sourceTree = "<group>"; };
+		1466F5BB1EC32A0A00AA238F /* CollectionGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionGameCell.xib; sourceTree = "<group>"; };
 		146B2D691EC0223600974785 /* UIBarButtonItem+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extend.h"; sourceTree = "<group>"; };
 		146B2D6A1EC0223600974785 /* UIBarButtonItem+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extend.m"; sourceTree = "<group>"; };
 		146B2D6C1EC022CD00974785 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
@@ -242,6 +252,12 @@
 				1466F5AF1EC3004800AA238F /* CollectionCycleCell.h */,
 				1466F5B01EC3004800AA238F /* CollectionCycleCell.m */,
 				1466F5B11EC3004800AA238F /* CollectionCycleCell.xib */,
+				1466F5B41EC31D7F00AA238F /* RecommendGameView.h */,
+				1466F5B51EC31D7F00AA238F /* RecommendGameView.m */,
+				1466F5B71EC31D8B00AA238F /* RecommendGameView.xib */,
+				1466F5B91EC32A0A00AA238F /* CollectionGameCell.h */,
+				1466F5BA1EC32A0A00AA238F /* CollectionGameCell.m */,
+				1466F5BB1EC32A0A00AA238F /* CollectionGameCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,6 +488,8 @@
 				141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */,
 				141D67951EBC723700065D86 /* Assets.xcassets in Resources */,
 				1466F5B31EC3004800AA238F /* CollectionCycleCell.xib in Resources */,
+				1466F5BD1EC32A0A00AA238F /* CollectionGameCell.xib in Resources */,
+				1466F5B81EC31D8B00AA238F /* RecommendGameView.xib in Resources */,
 				141D67931EBC723700065D86 /* Main.storyboard in Resources */,
 				146337661EC194F8007A7440 /* RecommendHeaderView.xib in Resources */,
 				141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */,
@@ -545,9 +563,11 @@
 				141D678D1EBC723700065D86 /* AppDelegate.m in Sources */,
 				141D678A1EBC723700065D86 /* main.m in Sources */,
 				146337651EC194F8007A7440 /* RecommendHeaderView.m in Sources */,
+				1466F5B61EC31D7F00AA238F /* RecommendGameView.m in Sources */,
 				146337611EC17481007A7440 /* RecommendViewController.m in Sources */,
 				1466F5A91EC2E6BD00AA238F /* RecommendCycleView.m in Sources */,
 				146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */,
+				1466F5BC1EC32A0A00AA238F /* CollectionGameCell.m in Sources */,
 				146337921EC1D5F2007A7440 /* RoomListModel.m in Sources */,
 				146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */,
 				1463378F1EC1D0B7007A7440 /* PrettyDataModel.m in Sources */,

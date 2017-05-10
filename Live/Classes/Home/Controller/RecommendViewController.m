@@ -15,16 +15,18 @@
 #import "CollectionNormalCell.h"
 #import "CollectionPrettyCell.h"
 #import "RecommendCycleView.h"
+#import "RecommendGameView.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
 #define kRecommendFooterViewID @"kRecommendFooterViewID"
-#define kCycleViewH 150
+#define kCycleViewH 160
+#define kGameViewH  90
 #define kItemMargin 10
 #define kItemW ([UIScreen mainScreen].bounds.size.width - 3 * kItemMargin) / 2
 #define kNormalItemH kItemW * 3 / 4
 #define kPrettyItemH kItemW * 4 / 3
-#define kHeaderViewH 40
+#define kHeaderViewH 30
 #define kFooterViewH 10
 @interface RecommendViewController () <UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 {
@@ -33,8 +35,11 @@
     NSArray *_prettyArray;
     NSArray *_hotCareArray;
     RecommendCycleView *_recommentCycleView;
+    RecommendGameView *_recommendGameView;
+    
 }
 @property (nonatomic,retain) RecommendCycleView *recommentCycleView;
+@property (nonatomic,retain) RecommendGameView *recommendGameView;
 @property (nonatomic,retain) UICollectionView *collectionView;
 @property (nonatomic,copy) NSArray *bigDataArray;
 @property (nonatomic,copy) NSArray *prettyArray;
@@ -53,17 +58,26 @@
     [self.view addSubview:self.collectionView];
     // 在collectionView上面添加广告轮播
     [_collectionView addSubview:self.recommentCycleView];
-    _collectionView.contentInset = UIEdgeInsetsMake(kCycleViewH, 0, 0, 0);
+    
+    // 在collectionView上添加推荐游戏
+    [_collectionView addSubview:self.recommendGameView];
+    
+    // 设置collectionView上面偏移出来的距离
+    _collectionView.contentInset = UIEdgeInsetsMake(kCycleViewH+kGameViewH, 0, 0, 0);
+    
     // 请求推荐数据
     [RecommendViewModel requestRecommendData:^(NSArray *bigDataArray, NSArray *prettyArray, NSArray *hotArray) {
         _bigDataArray = bigDataArray;
         _prettyArray = prettyArray;
         _hotCareArray = hotArray;
         [_collectionView reloadData];
+        
+        //刷新游戏推荐
+        [self.recommendGameView reloadDataWithModelArray:hotArray];
     }];
     // 请求轮播数据
     [RecommendViewModel requestCycleData:^(NSArray *cycleArray) {
-        [self.recommentCycleView reloadDataWith:cycleArray];
+        [self.recommentCycleView reloadDataWithModelArray:cycleArray];
     }];
 }
 
@@ -71,9 +85,18 @@
 {
     if (!_recommentCycleView){
         _recommentCycleView = [RecommendCycleView recommendCycleView];
-        _recommentCycleView.frame = CGRectMake(0, -kCycleViewH, ScreenWith, kCycleViewH);
+        _recommentCycleView.frame = CGRectMake(0, -kCycleViewH-kGameViewH-kItemMargin, ScreenWith, kCycleViewH);
     }
     return _recommentCycleView;
+}
+
+- (RecommendGameView *)recommendGameView
+{
+    if (!_recommendGameView) {
+        _recommendGameView = [RecommendGameView recommendGameView];
+        _recommendGameView.frame = CGRectMake(0, -kGameViewH-kItemMargin, ScreenWith, kGameViewH);
+    }
+    return _recommendGameView;
 }
 
 - (UICollectionView *)collectionView
@@ -145,7 +168,7 @@
     
     if (kind == UICollectionElementKindSectionFooter) {
         UICollectionReusableView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kRecommendFooterViewID forIndexPath:indexPath];
-        foot.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
+        foot.backgroundColor = [UIColor ColorWithHexString:@"#E4E4E4" withAlpha:1];
         reusableView = foot;
     }
     

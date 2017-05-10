@@ -1,5 +1,5 @@
 //
-//  RecommendCycleView.h
+//  RecommendGameView.h
 //  Live
 //
 //  Created by Cheng on 2017/5/10.
@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecommendCycleView : UIView
+@interface RecommendGameView : UIView
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
-+ (instancetype)recommendCycleView;
-// 从根控制器获取数据
++ (instancetype)recommendGameView;
+
 - (void)reloadDataWithModelArray:(NSArray *)modelArray;
 @end

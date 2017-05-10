@@ -30,11 +30,11 @@
     [self addCycleTimer];
 }
 
-- (void)reloadDataWith:(NSArray *)cycleArray
+- (void)reloadDataWithModelArray:(NSArray *)modelArray
 {
-    self.cycleArray = cycleArray;
+    self.cycleArray = modelArray;
     [_collectionView reloadData];
-    _pageControl.numberOfPages = cycleArray.count;
+    _pageControl.numberOfPages = modelArray.count;
     // 默认滚动到60处，那么用户向前滚动也有内容
     [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.cycleArray.count * 10 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
 }
