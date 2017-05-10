@@ -158,16 +158,16 @@
     
     if (indexPath.section == 0) { // bigData 第0组
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNormalCellID forIndexPath:indexPath];
-        [(CollectionNormalCell *)cell setContentWithBigDataModel:_bigDataArray[indexPath.item]];
+        [(CollectionNormalCell *)cell setBigDataModel:_bigDataArray[indexPath.item]];
     }else if (indexPath.section == 1) { // prettyCell 第一组
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPrettyCellID forIndexPath:indexPath];
-        [(CollectionPrettyCell *)cell setContentWithModel:_prettyArray[indexPath.item]];
+        [(CollectionPrettyCell *)cell setPrettyModel:_prettyArray[indexPath.item]];
     }else { // hotcare 第2-12组
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNormalCellID forIndexPath:indexPath];
         HotCareModel *hotcare = _hotCareArray[indexPath.section - 2];
         NSArray *room_list = hotcare.room_list;
         RoomListModel *room = room_list[indexPath.item];
-        [(CollectionNormalCell *)cell setContentWithRoomListModel:room];
+        [(CollectionNormalCell *)cell setRoomListModel:room];
     }
     return cell;
 }

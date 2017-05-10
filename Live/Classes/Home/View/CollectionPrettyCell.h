@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *online;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
-- (void)setContentWithModel:(PrettyDataModel *)model;
+
+@property (nonatomic,retain) PrettyDataModel *prettyModel;
+
 @end

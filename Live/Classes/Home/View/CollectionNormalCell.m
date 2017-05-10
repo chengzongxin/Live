@@ -16,24 +16,23 @@
     // Initialization code
 }
 
-- (void)setContentWithBigDataModel:(BIgDataModel *)model
+- (void)setBigDataModel:(BIgDataModel *)bigDataModel
 {
-    MYLog(@"%@",[model properties_aps]);
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.room_src]];
-    self.name.text = model.nickname;
-    self.online.text = [NSString stringWithFormat:@"%d",model.online];
-    [self.titleButton setTitle:model.room_name forState:UIControlStateNormal];
-
+    _bigDataModel = bigDataModel;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:bigDataModel.room_src]];
+    self.name.text = bigDataModel.nickname;
+    self.online.text = [NSString stringWithFormat:@"%d",bigDataModel.online];
+    [self.titleButton setTitle:bigDataModel.room_name forState:UIControlStateNormal];
 }
 
-- (void)setContentWithRoomListModel:(RoomListModel *)model
+- (void)setRoomListModel:(RoomListModel *)roomListModel
 {
-    MYLog(@"%@",[model properties_aps]);
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.room_src]];
-    self.name.text = model.nickname;
-    self.online.text = [NSString stringWithFormat:@"%d",model.online];
-    [self.titleButton setTitle:model.room_name forState:UIControlStateNormal];
-    
+    _roomListModel = roomListModel;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:roomListModel.room_src]];
+    self.name.text = roomListModel.nickname;
+    self.online.text = [NSString stringWithFormat:@"%d",roomListModel.online];
+    [self.titleButton setTitle:roomListModel.room_name forState:UIControlStateNormal];
 }
+
 
 @end

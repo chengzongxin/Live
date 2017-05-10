@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *online;
 @property (weak, nonatomic) IBOutlet UIButton *titleButton;
-- (void)setContentWithBigDataModel:(BIgDataModel *)model;
-- (void)setContentWithRoomListModel:(RoomListModel *)model;
+@property (nonatomic,retain) BIgDataModel *bigDataModel;
+@property (nonatomic,retain) RoomListModel *roomListModel;
+
 @end

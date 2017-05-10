@@ -11,12 +11,13 @@
 #import "NSObject+Extend.h"
 @implementation CollectionPrettyCell
 
-- (void)setContentWithModel:(PrettyDataModel *)model
+- (void)setPrettyModel:(PrettyDataModel *)prettyModel
 {
-    MYLog(@"%@",[model properties_aps]);
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.vertical_src]];
-    self.name.text = model.nickname;
-    self.online.text = [NSString stringWithFormat:@"%d",model.online];
-    [self.locationButton setTitle:model.anchor_city forState:UIControlStateNormal];
+    _prettyModel = prettyModel;
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:prettyModel.vertical_src]];
+    self.name.text = prettyModel.nickname;
+    self.online.text = [NSString stringWithFormat:@"%d",prettyModel.online];
+    [self.locationButton setTitle:prettyModel.anchor_city forState:UIControlStateNormal];
 }
+
 @end
