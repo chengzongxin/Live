@@ -85,7 +85,7 @@
 {
     if (!_recommentCycleView){
         _recommentCycleView = [RecommendCycleView recommendCycleView];
-        _recommentCycleView.frame = CGRectMake(0, -kCycleViewH-kGameViewH-kItemMargin, ScreenWith, kCycleViewH);
+        _recommentCycleView.frame = CGRectMake(0, -kCycleViewH-kGameViewH, ScreenWith, kCycleViewH);
     }
     return _recommentCycleView;
 }
@@ -94,7 +94,7 @@
 {
     if (!_recommendGameView) {
         _recommendGameView = [RecommendGameView recommendGameView];
-        _recommendGameView.frame = CGRectMake(0, -kGameViewH-kItemMargin, ScreenWith, kGameViewH);
+        _recommendGameView.frame = CGRectMake(0, -kGameViewH, ScreenWith, kGameViewH);
     }
     return _recommendGameView;
 }
