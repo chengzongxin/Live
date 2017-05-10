@@ -21,7 +21,7 @@
     MYLog(@"%@",[model properties_aps]);
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.room_src]];
     self.name.text = model.nickname;
-    self.online.text = model.game_name;
+    self.online.text = [NSString stringWithFormat:@"%d",model.online];
     [self.titleButton setTitle:model.room_name forState:UIControlStateNormal];
 
 }
@@ -31,7 +31,7 @@
     MYLog(@"%@",[model properties_aps]);
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:model.room_src]];
     self.name.text = model.nickname;
-    self.online.text = model.game_name;
+    self.online.text = [NSString stringWithFormat:@"%d",model.online];
     [self.titleButton setTitle:model.room_name forState:UIControlStateNormal];
     
 }
