@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "BIgDataModel.h"
+#import "HotCareModel.h"
 @interface CollectionNormalCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UILabel *online;
+@property (weak, nonatomic) IBOutlet UIButton *titleButton;
+- (void)setContentWithBigDataModel:(BIgDataModel *)model;
+- (void)setContentWithRoomListModel:(RoomListModel *)model;
 @end

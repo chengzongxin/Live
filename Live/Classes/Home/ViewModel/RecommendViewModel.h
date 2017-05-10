@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface RecommendViewModel : NSObject
-- (void)requestRecommendData;
++ (void)requestRecommendData:(void (^)(NSArray *bigDataArray,NSArray *prettyArray,NSArray *hotArray))block;
 @end

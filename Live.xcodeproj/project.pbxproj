@@ -31,6 +31,9 @@
 		146337841EC1BC4E007A7440 /* RecommendViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337831EC1BC4E007A7440 /* RecommendViewModel.m */; };
 		146337891EC1C443007A7440 /* BIgDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337881EC1C443007A7440 /* BIgDataModel.m */; };
 		1463378C1EC1CB02007A7440 /* NSObject+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 1463378B1EC1CB02007A7440 /* NSObject+Extend.m */; };
+		1463378F1EC1D0B7007A7440 /* PrettyDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1463378E1EC1D0B7007A7440 /* PrettyDataModel.m */; };
+		146337921EC1D5F2007A7440 /* RoomListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337911EC1D5F2007A7440 /* RoomListModel.m */; };
+		146337951EC1D625007A7440 /* HotCareModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337941EC1D625007A7440 /* HotCareModel.m */; };
 		146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6A1EC0223600974785 /* UIBarButtonItem+Extend.m */; };
 		146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6D1EC022CD00974785 /* UIColor+Extend.m */; };
 		146B2D731EC04DB400974785 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D721EC04DB400974785 /* PageTitleView.m */; };
@@ -80,6 +83,12 @@
 		146337881EC1C443007A7440 /* BIgDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BIgDataModel.m; sourceTree = "<group>"; };
 		1463378A1EC1CB02007A7440 /* NSObject+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Extend.h"; sourceTree = "<group>"; };
 		1463378B1EC1CB02007A7440 /* NSObject+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extend.m"; sourceTree = "<group>"; };
+		1463378D1EC1D0B7007A7440 /* PrettyDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrettyDataModel.h; sourceTree = "<group>"; };
+		1463378E1EC1D0B7007A7440 /* PrettyDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrettyDataModel.m; sourceTree = "<group>"; };
+		146337901EC1D5F2007A7440 /* RoomListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomListModel.h; sourceTree = "<group>"; };
+		146337911EC1D5F2007A7440 /* RoomListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomListModel.m; sourceTree = "<group>"; };
+		146337931EC1D625007A7440 /* HotCareModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotCareModel.h; sourceTree = "<group>"; };
+		146337941EC1D625007A7440 /* HotCareModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotCareModel.m; sourceTree = "<group>"; };
 		146B2D691EC0223600974785 /* UIBarButtonItem+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extend.h"; sourceTree = "<group>"; };
 		146B2D6A1EC0223600974785 /* UIBarButtonItem+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extend.m"; sourceTree = "<group>"; };
 		146B2D6C1EC022CD00974785 /* UIColor+Extend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extend.h"; sourceTree = "<group>"; };
@@ -190,6 +199,12 @@
 			children = (
 				146337871EC1C443007A7440 /* BIgDataModel.h */,
 				146337881EC1C443007A7440 /* BIgDataModel.m */,
+				1463378D1EC1D0B7007A7440 /* PrettyDataModel.h */,
+				1463378E1EC1D0B7007A7440 /* PrettyDataModel.m */,
+				146337931EC1D625007A7440 /* HotCareModel.h */,
+				146337941EC1D625007A7440 /* HotCareModel.m */,
+				146337901EC1D5F2007A7440 /* RoomListModel.h */,
+				146337911EC1D5F2007A7440 /* RoomListModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -502,13 +517,16 @@
 				1463378C1EC1CB02007A7440 /* NSObject+Extend.m in Sources */,
 				1428B7C01EBCA04A00D072B7 /* UITabBar+Swizzling.m in Sources */,
 				1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */,
+				146337951EC1D625007A7440 /* HotCareModel.m in Sources */,
 				146B2D761EC0691700974785 /* PageContentView.m in Sources */,
 				141D678D1EBC723700065D86 /* AppDelegate.m in Sources */,
 				141D678A1EBC723700065D86 /* main.m in Sources */,
 				146337651EC194F8007A7440 /* RecommendHeaderView.m in Sources */,
 				146337611EC17481007A7440 /* RecommendViewController.m in Sources */,
 				146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */,
+				146337921EC1D5F2007A7440 /* RoomListModel.m in Sources */,
 				146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */,
+				1463378F1EC1D0B7007A7440 /* PrettyDataModel.m in Sources */,
 				1463377C1EC1AEE6007A7440 /* CollectionPrettyCell.m in Sources */,
 				146337841EC1BC4E007A7440 /* RecommendViewModel.m in Sources */,
 				141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */,

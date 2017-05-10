@@ -11,7 +11,8 @@
 #import "NewWorkHeader.h"
 #import "BIgDataModel.h"
 #import "NSObject+Extend.h"
-
+#import "PrettyDataModel.h"
+#import "HotCareModel.h"
 @interface RecommendViewModel()
 {
     NSMutableArray *_hotArray;
@@ -27,35 +28,67 @@
 
 
 
-- (void)requestRecommendData
++ (void)requestRecommendData:(void (^)(NSArray *bigDataArray,NSArray *prettyArray,NSArray *hotArray))block;
 {
-    _hotArray = [NSMutableArray array];
-    _prettyArray = [NSMutableArray array];
-    _gameArray = [NSMutableArray array];
+    NSMutableArray *bigDataArray = [NSMutableArray array];
+    NSMutableArray *prettyArray = [NSMutableArray array];
+    NSMutableArray *hotArray = [NSMutableArray array];
     
     NSDate *date = [NSDate date];
     NSTimeInterval time = [date timeIntervalSince1970];
     NSString *timeStr = [NSString stringWithFormat:@"%d",(int)time];
+    
+    dispatch_group_t group = dispatch_group_create();
     // 1.请求热门数据
+    dispatch_group_enter(group);
     [NetWork requestDataMethod:GET WithUrl:NETWORK_BIGDATA_DATA parameters:@{@"time":timeStr} success:^(NSURLSessionDataTask *task, id responseObject) {
 //        MYLog(@"%@",responseObject);
         NSArray *data = responseObject[@"data"];
         for (NSDictionary *dict in data) {
             BIgDataModel *bigDataModel = [[BIgDataModel alloc] init];
             [bigDataModel setValuesForKeysWithDictionary:dict];
-            [_hotArray addObject:bigDataModel];
-//            MYLog(@"properties_aps %@",[bigDataModel properties_aps] );
+            [bigDataArray addObject:bigDataModel];
         }
+        dispatch_group_leave(group);
+        MYLog(@"请求完成第1组数据");
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
     // 2.请求颜值数据 "limit":"4", "offset" : "0", "time"
-    [NetWork requestDataMethod:GET WithUrl:NETWORK_PRETTY_DATA parameters:@{@"limit" : @4,@"offset" : @0,@"time" : timeStr} success:^(NSURLSessionDataTask *task, id responseObject) {
-        MYLog(@"NETWORK_PRETTY_DATA%@",responseObject);
+    dispatch_group_enter(group);
+    [NetWork requestDataMethod:GET WithUrl:NETWORK_PRETTY_DATA parameters:@{@"time" : timeStr,@"limit" : @"4",@"offset" : @"0"} success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *data = responseObject[@"data"];
+        for (NSDictionary *dict in data) {
+            PrettyDataModel *prettyDataModel = [[PrettyDataModel alloc] init];
+            [prettyDataModel setValuesForKeysWithDictionary:dict];
+            [prettyArray addObject:prettyDataModel];
+            
+        }
+        dispatch_group_leave(group);
+        MYLog(@"请求完成第2组数据");
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         
     }];
     // 3.请求游戏数据
+    dispatch_group_enter(group);
+    [NetWork requestDataMethod:GET WithUrl:NETWORK_HOT_DATA parameters:@{@"time" : timeStr,@"limit" : @"4",@"offset" : @"0"} success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *data = responseObject[@"data"];
+        for (NSDictionary *dict in data) {
+            HotCareModel *hotCareModel = [[HotCareModel alloc] init];
+            [hotCareModel setValuesForKeysWithDictionary:dict];
+            [hotArray addObject:hotCareModel];
+        }
+        dispatch_group_leave(group);
+        MYLog(@"请求完成第3组数据");
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+    
+     // 4.所有数据加载完成
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        MYLog(@"所有数据加载完成");
+        block(bigDataArray,prettyArray,hotArray);
+    });
 }
 
 

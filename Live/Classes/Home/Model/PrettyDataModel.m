@@ -1,15 +1,13 @@
 //
-//  BIgDataModel.m
+//  PrettyDataModel.m
 //  Live
 //
 //  Created by Cheng on 2017/5/9.
 //  Copyright © 2017年 Joe. All rights reserved.
 //
 
-#import "BIgDataModel.h"
+#import "PrettyDataModel.h"
 
-@implementation BIgDataModel
-
+@implementation PrettyDataModel
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key{}
-
 @end

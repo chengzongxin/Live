@@ -68,6 +68,12 @@
                 <constraint firstItem="igb-QJ-S5Y" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="xbi-VY-yzq"/>
             </constraints>
             <size key="customSize" width="263" height="155"/>
+            <connections>
+                <outlet property="imageView" destination="I2s-VH-rtU" id="KFx-at-DEY"/>
+                <outlet property="name" destination="gAx-ER-Mg5" id="gEx-M9-mXx"/>
+                <outlet property="online" destination="9eQ-cR-Cuq" id="1Qs-qU-WRc"/>
+                <outlet property="titleButton" destination="igb-QJ-S5Y" id="fG4-oc-anp"/>
+            </connections>
             <point key="canvasLocation" x="-154" y="-20"/>
         </collectionViewCell>
     </objects>

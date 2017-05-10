@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="home_header_phone_18x18_" translatesAutoresizingMaskIntoConstraints="NO" id="IOE-mw-VRE" userLabel="iconImageView">
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="home_header_normal_18x18_" translatesAutoresizingMaskIntoConstraints="NO" id="IOE-mw-VRE" userLabel="iconImageView">
                     <rect key="frame" x="10" y="16" width="18" height="18"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="颜值" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geU-lY-znn">
@@ -51,6 +51,6 @@
     </objects>
     <resources>
         <image name="dyla_右箭头_16x16_" width="16" height="16"/>
-        <image name="home_header_phone_18x18_" width="18" height="18"/>
+        <image name="home_header_normal_18x18_" width="18" height="18"/>
     </resources>
 </document>

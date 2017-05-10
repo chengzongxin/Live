@@ -9,6 +9,11 @@
 #import "RecommendViewController.h"
 #import "RecommendHeaderView.h"
 #import "RecommendViewModel.h"
+#import "BIgDataModel.h"
+#import "PrettyDataModel.h"
+#import "HotCareModel.h"
+#import "CollectionNormalCell.h"
+#import "CollectionPrettyCell.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
@@ -23,8 +28,14 @@
     CGFloat kFooterViewH;
     
     UICollectionView *_collectionView;
+    NSArray *_bigDataArray;
+    NSArray *_prettyArray;
+    NSArray *_hotCareArray;
 }
 @property (nonatomic,retain) UICollectionView *collectionView;
+@property (nonatomic,copy) NSArray *bigDataArray;
+@property (nonatomic,copy) NSArray *prettyArray;
+@property (nonatomic,copy) NSArray *hotCareArray;
 @end
 
 @implementation RecommendViewController
@@ -43,8 +54,12 @@
     
     [self.view addSubview:self.collectionView];
     
-    RecommendViewModel *recommendVM = [[RecommendViewModel alloc] init];
-    [recommendVM requestRecommendData];
+    [RecommendViewModel requestRecommendData:^(NSArray *bigDataArray, NSArray *prettyArray, NSArray *hotArray) {
+        _bigDataArray = bigDataArray;
+        _prettyArray = prettyArray;
+        _hotCareArray = hotArray;
+        [_collectionView reloadData];
+    }];
 }
 
 - (UICollectionView *)collectionView
@@ -59,7 +74,9 @@
         layout.footerReferenceSize = CGSizeMake(ScreenWith, kFooterViewH);
         layout.sectionInset = UIEdgeInsetsMake(0,kItemMargin,0,kItemMargin);
         // 2.创建UICollectionView
-        _collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:layout];
+        CGRect frame = self.view.bounds;
+        frame.size.height = frame.size.height - 64 - 44 - 44;
+        _collectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor whiteColor];
         _collectionView.dataSource = self;
         _collectionView.delegate = self;
@@ -75,15 +92,19 @@
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 12;
+    return _hotCareArray.count + 2;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return 8;
+    if (section == 0) { // bigdata
+        return _bigDataArray.count;
+    }else if (section == 1){ // pretty
+        return MIN(4, _prettyArray.count) ;
+    }else{ // hotcare
+        return MIN(4, [(HotCareModel *)_hotCareArray[section - 2] room_list].count);
     }
-    return 4;
+    
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
@@ -93,8 +114,17 @@
     if (kind == UICollectionElementKindSectionHeader) {
         RecommendHeaderView *head = (RecommendHeaderView *)[collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:kRecommendHeaderViewID forIndexPath:indexPath];
         
-        head.title.text = @"热门";
-//        [head setMoreTitle:@"更多直播 >"];
+        if (indexPath.section == 0) {
+            head.title.text = @"最热";
+            head.iconImageView.image = [UIImage imageNamed:@"home_header_hot_18x18_"];
+        }else if (indexPath.section == 1){
+            head.title.text = @"颜值";
+            head.iconImageView.image = [UIImage imageNamed:@"home_header_phone_18x18_"];
+        }else{
+            HotCareModel *hotCareModel = _hotCareArray[indexPath.section - 2];
+            head.title.text = hotCareModel.tag_name;
+            head.iconImageView.image = [UIImage imageNamed:@"home_header_normal_18x18_"];
+        }
 //        [head.moreBtn addTarget:self action:@selector(clickMoreLiveButton) forControlEvents:UIControlEventTouchDown];
         reusableView = head;
     }
@@ -103,8 +133,6 @@
         UICollectionReusableView *foot = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:kRecommendFooterViewID forIndexPath:indexPath];
         foot.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
         reusableView = foot;
-//        foot.layer.cornerRadius =1;
-//        foot.layer.masksToBounds = YES;
     }
     
     return reusableView;
@@ -114,12 +142,19 @@
 {
     UICollectionViewCell *cell = nil;
     
-    if (indexPath.section == 1) {  // prettyCell
-        cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPrettyCellID forIndexPath:indexPath];
-    }else{   // normalCell
+    if (indexPath.section == 0) { // bigData 第0组
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNormalCellID forIndexPath:indexPath];
+        [(CollectionNormalCell *)cell setContentWithBigDataModel:_bigDataArray[indexPath.item]];
+    }else if (indexPath.section == 1) { // prettyCell 第一组
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:kPrettyCellID forIndexPath:indexPath];
+        [(CollectionPrettyCell *)cell setContentWithModel:_prettyArray[indexPath.item]];
+    }else { // hotcare 第2-12组
+        cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNormalCellID forIndexPath:indexPath];
+        HotCareModel *hotcare = _hotCareArray[indexPath.section - 2];
+        NSArray *room_list = hotcare.room_list;
+        RoomListModel *room = room_list[indexPath.item];
+        [(CollectionNormalCell *)cell setContentWithRoomListModel:room];
     }
-    
     return cell;
 }
 
