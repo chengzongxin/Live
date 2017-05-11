@@ -188,6 +188,7 @@
 				141D67A01EBC7A5F00065D86 /* Home(首页) */,
 				141D67A41EBC7A5F00065D86 /* Live(直播) */,
 				141D67AC1EBC7A5F00065D86 /* Profile(我的) */,
+				146509971EC40D7100CB1BB4 /* Player(播放) */,
 				141D67B01EBC7A5F00065D86 /* Tools(工具) */,
 			);
 			path = Classes;
@@ -403,6 +404,38 @@
 				146337831EC1BC4E007A7440 /* RecommendViewModel.m */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		146509971EC40D7100CB1BB4 /* Player(播放) */ = {
+			isa = PBXGroup;
+			children = (
+				146509981EC40D7100CB1BB4 /* Controller */,
+				146509991EC40D7100CB1BB4 /* Model */,
+				1465099A1EC40D7100CB1BB4 /* View */,
+			);
+			name = "Player(播放)";
+			path = Player;
+			sourceTree = "<group>";
+		};
+		146509981EC40D7100CB1BB4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		146509991EC40D7100CB1BB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1465099A1EC40D7100CB1BB4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		3516CD14D739A3BD625B3B32 /* Frameworks */ = {

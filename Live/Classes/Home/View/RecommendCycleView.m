@@ -27,7 +27,6 @@
     
     [_collectionView registerNib:[UINib nibWithNibName:@"CollectionCycleCell" bundle:nil] forCellWithReuseIdentifier:kCycleCellID];
     
-    [self addCycleTimer];
 }
 
 - (void)reloadDataWithModelArray:(NSArray *)modelArray
@@ -37,6 +36,8 @@
     _pageControl.numberOfPages = modelArray.count;
     // 默认滚动到60处，那么用户向前滚动也有内容
     [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.cycleArray.count * 10 inSection:0] atScrollPosition:UICollectionViewScrollPositionLeft animated:NO];
+    // 载入数据才移动，否则会产生bug
+    [self addCycleTimer];
 }
 
 // 布局的尺寸必须在layoutsubviews中计算，否则拿到的size不准确
@@ -87,9 +88,11 @@
 
 - (void)addCycleTimer
 {
+    if (!_cycleTimer){
     _cycleTimer = [NSTimer timerWithTimeInterval:3.0 target:self selector:@selector(scrollToNext) userInfo:nil repeats:YES];
-    
+
     [[NSRunLoop mainRunLoop] addTimer:_cycleTimer forMode:NSRunLoopCommonModes];
+    }
 }
 
 - (void)removeCycleTime

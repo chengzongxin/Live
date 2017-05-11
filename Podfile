@@ -7,5 +7,6 @@ target 'Live' do
   pod 'Masonry'
   pod 'AFNetworking'
   pod 'SDWebImage'
+  pod 'MJRefresh'
 
 end

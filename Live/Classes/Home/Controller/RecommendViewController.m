@@ -16,6 +16,7 @@
 #import "CollectionPrettyCell.h"
 #import "RecommendCycleView.h"
 #import "RecommendGameView.h"
+#import <MJRefresh/MJRefresh.h>
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
@@ -65,6 +66,28 @@
     // 设置collectionView上面偏移出来的距离
     _collectionView.contentInset = UIEdgeInsetsMake(kCycleViewH+kGameViewH, 0, 0, 0);
     
+    // 设置下拉刷新
+    [self setupRefresh];
+    
+    // 第一次进入刷新请求
+    [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)setupRefresh {
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateIdle_64x66_"]] forState:MJRefreshStateIdle];
+    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_statePulling_64x66_"]] forState:MJRefreshStatePulling];
+    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateRefreshing_01_135x66_"],
+                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_02_135x66_"],
+                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_03_135x66_"],
+                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_04_135x66_"]] duration:0.5 forState:MJRefreshStateRefreshing];
+    [header setTimeLabelHidden:YES forState:MJRefreshStateRefreshing];
+    header.ignoredScrollViewContentInsetTop = kCycleViewH+kGameViewH;  // 忽略insets
+    self.collectionView.mj_header = header;
+}
+
+- (void)refreshData
+{
     // 请求推荐数据
     [RecommendViewModel requestRecommendData:^(NSArray *bigDataArray, NSArray *prettyArray, NSArray *hotArray) {
         _bigDataArray = bigDataArray;
@@ -74,6 +97,8 @@
         
         //刷新游戏推荐
         [self.recommendGameView reloadDataWithModelArray:hotArray];
+        
+        [self.collectionView.mj_header endRefreshing];
     }];
     // 请求轮播数据
     [RecommendViewModel requestCycleData:^(NSArray *cycleArray) {
