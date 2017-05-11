@@ -234,6 +234,17 @@
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MYLog(@"%@",indexPath);
+    if (indexPath.section == 0) {  // hot
+        BIgDataModel *bigDataModel = _bigDataArray[indexPath.item];
+        MYLog(@"%@",bigDataModel);
+    }else if (indexPath.section == 1) { // pretty
+        PrettyDataModel *pretty = _prettyArray[indexPath.item];
+        MYLog(@"%@",pretty);
+    }else{
+        
+        MYLog(@"%@",_hotCareArray);
+//        HotCareModel *hot = (_hotCareArray[indexPath.section])@[@"room_list"][indexPath.item];
+    }
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
     PlayerViewController *playerVc = [story instantiateViewControllerWithIdentifier:@"PlayerViewController"];
     [self.navigationController pushViewController:playerVc animated:YES];

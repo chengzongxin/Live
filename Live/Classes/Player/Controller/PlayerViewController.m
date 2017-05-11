@@ -9,6 +9,7 @@
 #import "PlayerViewController.h"
 #import "PortraitView.h"
 #import "LandScapeView.h"
+#import <IJKMediaFrameworkWithSSL/IJKMediaFrameworkWithSSL.h>
 
 @interface PlayerViewController ()<PortraitViewDelegate,LandScapeViewDelegate>{
 }
@@ -17,19 +18,11 @@
 
 @property (nonatomic,retain) LandScapeView *landScapeView;
 
+@property (nonatomic,retain) IJKFFMoviePlayerController *player;
+
 @end
 
 @implementation PlayerViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.navigationController.navigationBarHidden  = YES;
-    
-    [self.view addSubview:self.portraitView];
-    
-    [self listeningNoticefication];
-}
 
 - (PortraitView *)portraitView{
     if (!_portraitView) {
@@ -46,6 +39,59 @@
     }
     return _landScapeView;
 }
+
+- (IJKFFMoviePlayerController *)playerWithURLString:(NSString *)urlString{
+    if (!_player) {
+        // 设置只播放视频, 不播放声音
+        // github详解: https://github.com/Bilibili/ijkplayer/issues/1491#issuecomment-226714613
+        IJKFFOptions *option = [IJKFFOptions optionsByDefault];
+//        [option setPlayerOptionValue:@"1" forKey:@"an"];
+        // 开启硬解码
+        [option setPlayerOptionValue:@"1" forKey:@"videotoolbox"];
+        IJKFFMoviePlayerController *player = [[IJKFFMoviePlayerController alloc] initWithContentURLString:self.live_stream_url withOptions:option];
+        
+        player.view.frame = self.portraitView.bounds;
+        // 填充fill
+        player.scalingMode = IJKMPMovieScalingModeAspectFill;
+        // 设置自动播放
+        player.shouldAutoplay = YES;
+        
+        [self.portraitView addSubview:player.view];
+        
+        [player prepareToPlay];
+        
+        [player play];
+        _player = player;
+    }
+    return _player;
+}
+
+- (void)removeFromSuperview
+{
+    if (_player) {
+        [_player shutdown];
+        [_player.view removeFromSuperview];
+        _player = nil;
+    }
+//    [super removeFromSuperview];
+}
+
+- (void)setLive_stream_url:(NSString *)live_stream_url{
+    [self playerWithURLString:live_stream_url];
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.navigationController.navigationBarHidden  = YES;
+    
+    [self.view addSubview:self.portraitView];
+    
+    [self listeningNoticefication];
+}
+
+
 
 #pragma mark - portraitView代理方法
 

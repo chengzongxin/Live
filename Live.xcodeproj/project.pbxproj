@@ -51,9 +51,25 @@
 		14A589831EC4521A006E5B32 /* PortraitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589821EC4521A006E5B32 /* PortraitView.xib */; };
 		14A589861EC45247006E5B32 /* LandScapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589851EC45247006E5B32 /* LandScapeView.m */; };
 		14A589881EC45251006E5B32 /* LandScapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589871EC45251006E5B32 /* LandScapeView.xib */; };
+		14A5898B1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */; };
+		14A5898C1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14D33E1D1EC43E65006CCA63 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */; };
 		2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C63CC0ABC62F08BC68704 /* libPods-Live.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		14A5898D1EC48928006E5B32 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				14A5898C1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		141D67851EBC723700065D86 /* Live.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Live.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +148,7 @@
 		14A589841EC45247006E5B32 /* LandScapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeView.h; sourceTree = "<group>"; };
 		14A589851EC45247006E5B32 /* LandScapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeView.m; sourceTree = "<group>"; };
 		14A589871EC45251006E5B32 /* LandScapeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandScapeView.xib; sourceTree = "<group>"; };
+		14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFrameworkWithSSL.framework; sourceTree = "<group>"; };
 		14D33E1B1EC43E65006CCA63 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +161,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14A5898B1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Frameworks */,
 				2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +205,7 @@
 		141D67881EBC723700065D86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */,
 				141D67891EBC723700065D86 /* main.m */,
 				146B2D701EC027C200974785 /* PrefixHeader.pch */,
 			);
@@ -489,6 +508,7 @@
 				141D67831EBC723700065D86 /* Resources */,
 				50ECB191AFD356C9F6F9673C /* [CP] Embed Pods Frameworks */,
 				C7D31585D756CCD01FBEF705 /* [CP] Copy Pods Resources */,
+				14A5898D1EC48928006E5B32 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -760,6 +780,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5XB293ZE6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Live",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Live/PrefixHeader.pch";
 				INFOPLIST_FILE = Live/Info.plist;
@@ -775,6 +799,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 5XB293ZE6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Live",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Live/PrefixHeader.pch";
 				INFOPLIST_FILE = Live/Info.plist;

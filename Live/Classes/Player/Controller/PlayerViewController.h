@@ -10,4 +10,6 @@
 
 @interface PlayerViewController : UIViewController
 
+@property (nonatomic,copy) NSString *live_stream_url;
+
 @end
