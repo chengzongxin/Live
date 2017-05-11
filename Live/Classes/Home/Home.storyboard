@@ -22,10 +22,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
                     <navigationItem key="navigationItem" id="6DW-5T-CVe"/>
+                    <connections>
+                        <segue destination="Ka5-39-d47" kind="show" identifier="" id="rp6-pp-8rx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCY-uy-br2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1351" y="-786"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="NVi-Ze-bAu">
+            <objects>
+                <viewController storyboardIdentifier="PlayerViewController" hidesBottomBarWhenPushed="YES" id="Ka5-39-d47" customClass="PlayerViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DhK-wt-p0w"/>
+                        <viewControllerLayoutGuide type="bottom" id="UMW-mz-emg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="L29-a1-4X7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v2Y-Bm-N4c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="-786"/>
         </scene>
         <!--Item-->
         <scene sceneID="Kap-QI-K8z">
@@ -34,7 +57,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="x3p-A4-9tf"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="bIi-9d-MN8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bIi-9d-MN8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

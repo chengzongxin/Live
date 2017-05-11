@@ -47,6 +47,11 @@
 		146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6D1EC022CD00974785 /* UIColor+Extend.m */; };
 		146B2D731EC04DB400974785 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D721EC04DB400974785 /* PageTitleView.m */; };
 		146B2D761EC0691700974785 /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D751EC0691700974785 /* PageContentView.m */; };
+		14A589811EC45212006E5B32 /* PortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589801EC45212006E5B32 /* PortraitView.m */; };
+		14A589831EC4521A006E5B32 /* PortraitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589821EC4521A006E5B32 /* PortraitView.xib */; };
+		14A589861EC45247006E5B32 /* LandScapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589851EC45247006E5B32 /* LandScapeView.m */; };
+		14A589881EC45251006E5B32 /* LandScapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589871EC45251006E5B32 /* LandScapeView.xib */; };
+		14D33E1D1EC43E65006CCA63 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */; };
 		2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C63CC0ABC62F08BC68704 /* libPods-Live.a */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +126,14 @@
 		146B2D721EC04DB400974785 /* PageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTitleView.m; sourceTree = "<group>"; };
 		146B2D741EC0691700974785 /* PageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentView.h; sourceTree = "<group>"; };
 		146B2D751EC0691700974785 /* PageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentView.m; sourceTree = "<group>"; };
+		14A5897F1EC45212006E5B32 /* PortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitView.h; sourceTree = "<group>"; };
+		14A589801EC45212006E5B32 /* PortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitView.m; sourceTree = "<group>"; };
+		14A589821EC4521A006E5B32 /* PortraitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitView.xib; sourceTree = "<group>"; };
+		14A589841EC45247006E5B32 /* LandScapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeView.h; sourceTree = "<group>"; };
+		14A589851EC45247006E5B32 /* LandScapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeView.m; sourceTree = "<group>"; };
+		14A589871EC45251006E5B32 /* LandScapeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandScapeView.xib; sourceTree = "<group>"; };
+		14D33E1B1EC43E65006CCA63 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
 		C36C63CC0ABC62F08BC68704 /* libPods-Live.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Live.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB71E0D37D30FC3B3179BCA1 /* Pods-Live.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.release.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.release.xcconfig"; sourceTree = "<group>"; };
@@ -420,6 +433,14 @@
 		146509981EC40D7100CB1BB4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				14D33E1B1EC43E65006CCA63 /* PlayerViewController.h */,
+				14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */,
+				14A5897F1EC45212006E5B32 /* PortraitView.h */,
+				14A589801EC45212006E5B32 /* PortraitView.m */,
+				14A589821EC4521A006E5B32 /* PortraitView.xib */,
+				14A589841EC45247006E5B32 /* LandScapeView.h */,
+				14A589851EC45247006E5B32 /* LandScapeView.m */,
+				14A589871EC45251006E5B32 /* LandScapeView.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -524,6 +545,8 @@
 				1466F5B31EC3004800AA238F /* CollectionCycleCell.xib in Resources */,
 				1466F5BD1EC32A0A00AA238F /* CollectionGameCell.xib in Resources */,
 				1466F5B81EC31D8B00AA238F /* RecommendGameView.xib in Resources */,
+				14A589881EC45251006E5B32 /* LandScapeView.xib in Resources */,
+				14A589831EC4521A006E5B32 /* PortraitView.xib in Resources */,
 				141D67931EBC723700065D86 /* Main.storyboard in Resources */,
 				146337661EC194F8007A7440 /* RecommendHeaderView.xib in Resources */,
 				141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */,
@@ -600,6 +623,7 @@
 				1466F5B61EC31D7F00AA238F /* RecommendGameView.m in Sources */,
 				146337611EC17481007A7440 /* RecommendViewController.m in Sources */,
 				1466F5A91EC2E6BD00AA238F /* RecommendCycleView.m in Sources */,
+				14A589861EC45247006E5B32 /* LandScapeView.m in Sources */,
 				146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */,
 				1466F5BC1EC32A0A00AA238F /* CollectionGameCell.m in Sources */,
 				146337921EC1D5F2007A7440 /* RoomListModel.m in Sources */,
@@ -607,8 +631,10 @@
 				1463378F1EC1D0B7007A7440 /* PrettyDataModel.m in Sources */,
 				1463377C1EC1AEE6007A7440 /* CollectionPrettyCell.m in Sources */,
 				1466F5AE1EC2F60000AA238F /* CycleModel.m in Sources */,
+				14A589811EC45212006E5B32 /* PortraitView.m in Sources */,
 				146337841EC1BC4E007A7440 /* RecommendViewModel.m in Sources */,
 				141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */,
+				14D33E1D1EC43E65006CCA63 /* PlayerViewController.m in Sources */,
 				1428B7C31EBCA4EF00D072B7 /* HomeViewController.m in Sources */,
 				1466F5B21EC3004800AA238F /* CollectionCycleCell.m in Sources */,
 				146337891EC1C443007A7440 /* BIgDataModel.m in Sources */,

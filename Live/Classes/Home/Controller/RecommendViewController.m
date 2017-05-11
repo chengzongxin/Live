@@ -17,6 +17,7 @@
 #import "RecommendCycleView.h"
 #import "RecommendGameView.h"
 #import <MJRefresh/MJRefresh.h>
+#import "PlayerViewController.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
@@ -228,6 +229,14 @@
     } else {
         return CGSizeMake(kItemW,kNormalItemH);
     }
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MYLog(@"%@",indexPath);
+    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+    PlayerViewController *playerVc = [story instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    [self.navigationController pushViewController:playerVc animated:YES];
 }
 
 
