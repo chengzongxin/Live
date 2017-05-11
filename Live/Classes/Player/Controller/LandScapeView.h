@@ -8,7 +8,22 @@
 
 #import <UIKit/UIKit.h>
 
+@class LandScapeView;
+@protocol LandScapeViewDelegate <NSObject>
+
+@optional
+- (void)landScapeViewDidClickBackBtn:(LandScapeView *)landScapeView;
+
+- (void)landScapeView:(LandScapeView *)landScapeView setPortrait:(UIInterfaceOrientation)interfaceOrientation;
+
+@end
+
 @interface LandScapeView : UIView
+
+@property (nonatomic,weak) id<LandScapeViewDelegate> delegate;
+
+@property (weak, nonatomic) IBOutlet UIButton *back;
+
 
 + (instancetype)landScapeView;
 

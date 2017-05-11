@@ -14,4 +14,14 @@
 {
     return [[NSBundle mainBundle] loadNibNamed:NSStringFromClass([LandScapeView class]) owner:nil options:nil].firstObject;
 }
+
+- (IBAction)clickBack:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(landScapeView:setPortrait:)]) {
+        [self.delegate landScapeView:self setPortrait:UIInterfaceOrientationPortrait];
+    }
+}
+
+
+
+
 @end

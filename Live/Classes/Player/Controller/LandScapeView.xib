@@ -33,6 +33,9 @@
                             </constraints>
                             <state key="normal" image="btn_back_20x20_"/>
                             <state key="highlighted" image="btn_back_click_21x21_"/>
+                            <connections>
+                                <action selector="clickBack:" destination="iN0-l3-epB" eventType="touchUpInside" id="2aO-BF-uy6"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zDe-I0-LG7" userLabel="setting">
                             <rect key="frame" x="607" y="0.0" width="60" height="44"/>
@@ -179,7 +182,6 @@
                                 <constraint firstAttribute="height" constant="44" id="qXq-zU-dPD"/>
                             </constraints>
                             <state key="normal" image="btn_player_refresh_29x29_"/>
-                            <state key="highlighted" image="btn_player_pause_29x29_"/>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhM-8R-pD3" userLabel="roolist">
                             <rect key="frame" x="587" y="0.0" width="80" height="44"/>
@@ -191,7 +193,6 @@
                             <state key="normal" title="房间列表">
                                 <color key="titleColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                             </state>
-                            <state key="highlighted" image="btn_player_pause_29x29_"/>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QnY-Vj-FzG">
                             <rect key="frame" x="60" y="7" width="1" height="30"/>
@@ -229,7 +230,7 @@
                                         <constraint firstAttribute="height" constant="25" id="y8X-i9-DNE"/>
                                     </constraints>
                                 </view>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="吐个糟呗～" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1s4-cQ-ZBR">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="吐个糟呗～" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1s4-cQ-ZBR">
                                     <rect key="frame" x="50" y="0.0" width="355" height="34"/>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -257,7 +258,6 @@
                                 <constraint firstAttribute="height" constant="44" id="bpm-jj-9fs"/>
                             </constraints>
                             <state key="normal" image="btn_close_danmu_29x29_"/>
-                            <state key="highlighted" image="btn_back_click_21x21_"/>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -295,6 +295,9 @@
                 <constraint firstAttribute="bottom" secondItem="JNm-cH-Okp" secondAttribute="bottom" id="xUX-Kj-YWQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="back" destination="I4Q-ok-cRN" id="zpc-BZ-oE9"/>
+            </connections>
             <point key="canvasLocation" x="26.5" y="-181"/>
         </view>
     </objects>
