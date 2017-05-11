@@ -97,7 +97,6 @@
         for (NSDictionary *dict in data) {
             CycleModel *cycleModel = [[CycleModel alloc] initWithDict:dict];
             [array addObject:cycleModel];
-            MYLog(@"cylcemodel = %@",cycleModel);
         }
         block(array);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
