@@ -237,13 +237,17 @@
     [self.landScapeView removeFromSuperview];
     self.landScapeView = nil;
     [self.view addSubview:self.portraitView];
+    self.player.view.frame = self.portraitView.frame;
+    [self.portraitView insertSubview:self.player.view atIndex:0];
     [self.view layoutIfNeeded];
 }
 
 - (void)setOrientationLandscape{
     [self.portraitView removeFromSuperview];
     self.portraitView = nil;
+    self.player.view.frame = self.landScapeView.frame;
     [self.view addSubview:self.landScapeView];
+    [self.landScapeView insertSubview:self.player.view atIndex:0];
     [self.view layoutIfNeeded];
 }
 

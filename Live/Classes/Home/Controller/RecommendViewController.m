@@ -16,7 +16,7 @@
 #import "CollectionPrettyCell.h"
 #import "RecommendCycleView.h"
 #import "RecommendGameView.h"
-#import <MJRefresh/MJRefresh.h>
+#import "RefreshHeader.h"
 #import "PlayerViewController.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
@@ -132,18 +132,18 @@
     [self.collectionView.mj_header beginRefreshing];
 }
 
-
+/*
+ * 添加下拉刷新
+ */
 - (void)setupRefresh {
-    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
-    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateIdle_64x66_"]] forState:MJRefreshStateIdle];
-    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_statePulling_64x66_"]] forState:MJRefreshStatePulling];
-    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateRefreshing_01_135x66_"],
-                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_02_135x66_"],
-                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_03_135x66_"],
-                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_04_135x66_"]] duration:0.5 forState:MJRefreshStateRefreshing];
+    __weak typeof(self) weakSelf = self;
+    RefreshHeader *header = [RefreshHeader headerWithRefreshingBlock:^{
+        [weakSelf refreshData];
+    }];
     [header setTimeLabelHidden:YES forState:MJRefreshStateRefreshing];
     header.ignoredScrollViewContentInsetTop = kCycleViewH+kGameViewH;  // 忽略insets
     self.collectionView.mj_header = header;
+    
 }
 
 - (void)refreshData
