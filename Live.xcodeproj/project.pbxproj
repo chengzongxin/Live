@@ -47,24 +47,25 @@
 		146B2D6E1EC022CD00974785 /* UIColor+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D6D1EC022CD00974785 /* UIColor+Extend.m */; };
 		146B2D731EC04DB400974785 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D721EC04DB400974785 /* PageTitleView.m */; };
 		146B2D761EC0691700974785 /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D751EC0691700974785 /* PageContentView.m */; };
+		149608B91EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */; };
+		149608BA1EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		14999FA21EC586A20007211E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14999FA11EC586A20007211E /* BaseViewController.m */; };
 		14A589811EC45212006E5B32 /* PortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589801EC45212006E5B32 /* PortraitView.m */; };
 		14A589831EC4521A006E5B32 /* PortraitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589821EC4521A006E5B32 /* PortraitView.xib */; };
 		14A589861EC45247006E5B32 /* LandScapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589851EC45247006E5B32 /* LandScapeView.m */; };
 		14A589881EC45251006E5B32 /* LandScapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589871EC45251006E5B32 /* LandScapeView.xib */; };
-		14A5898B1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */; };
-		14A5898C1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		14D33E1D1EC43E65006CCA63 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */; };
 		2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C36C63CC0ABC62F08BC68704 /* libPods-Live.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		14A5898D1EC48928006E5B32 /* Embed Frameworks */ = {
+		149608BB1EC5BC880031F1F9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				14A5898C1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */,
+				149608BA1EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,13 +143,15 @@
 		146B2D721EC04DB400974785 /* PageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTitleView.m; sourceTree = "<group>"; };
 		146B2D741EC0691700974785 /* PageContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentView.h; sourceTree = "<group>"; };
 		146B2D751EC0691700974785 /* PageContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentView.m; sourceTree = "<group>"; };
+		149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFrameworkWithSSL.framework; sourceTree = "<group>"; };
+		14999FA01EC586A20007211E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		14999FA11EC586A20007211E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		14A5897F1EC45212006E5B32 /* PortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitView.h; sourceTree = "<group>"; };
 		14A589801EC45212006E5B32 /* PortraitView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PortraitView.m; sourceTree = "<group>"; };
 		14A589821EC4521A006E5B32 /* PortraitView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PortraitView.xib; sourceTree = "<group>"; };
 		14A589841EC45247006E5B32 /* LandScapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeView.h; sourceTree = "<group>"; };
 		14A589851EC45247006E5B32 /* LandScapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeView.m; sourceTree = "<group>"; };
 		14A589871EC45251006E5B32 /* LandScapeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandScapeView.xib; sourceTree = "<group>"; };
-		14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFrameworkWithSSL.framework; sourceTree = "<group>"; };
 		14D33E1B1EC43E65006CCA63 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		15E5545CBB1B0096D92995B6 /* Pods-Live.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Live.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Live/Pods-Live.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +164,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A5898B1EC48928006E5B32 /* IJKMediaFrameworkWithSSL.framework in Frameworks */,
+				149608B91EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Frameworks */,
 				2D7D6D10B922922F49AD9DC0 /* libPods-Live.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,7 +208,7 @@
 		141D67881EBC723700065D86 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				14A589891EC480D1006E5B32 /* IJKMediaFrameworkWithSSL.framework */,
+				149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */,
 				141D67891EBC723700065D86 /* main.m */,
 				146B2D701EC027C200974785 /* PrefixHeader.pch */,
 			);
@@ -425,6 +428,8 @@
 				146B2D6D1EC022CD00974785 /* UIColor+Extend.m */,
 				1463378A1EC1CB02007A7440 /* NSObject+Extend.h */,
 				1463378B1EC1CB02007A7440 /* NSObject+Extend.m */,
+				14999FA01EC586A20007211E /* BaseViewController.h */,
+				14999FA11EC586A20007211E /* BaseViewController.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -508,7 +513,7 @@
 				141D67831EBC723700065D86 /* Resources */,
 				50ECB191AFD356C9F6F9673C /* [CP] Embed Pods Frameworks */,
 				C7D31585D756CCD01FBEF705 /* [CP] Copy Pods Resources */,
-				14A5898D1EC48928006E5B32 /* Embed Frameworks */,
+				149608BB1EC5BC880031F1F9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -648,6 +653,7 @@
 				1466F5BC1EC32A0A00AA238F /* CollectionGameCell.m in Sources */,
 				146337921EC1D5F2007A7440 /* RoomListModel.m in Sources */,
 				146B2D6B1EC0223600974785 /* UIBarButtonItem+Extend.m in Sources */,
+				14999FA21EC586A20007211E /* BaseViewController.m in Sources */,
 				1463378F1EC1D0B7007A7440 /* PrettyDataModel.m in Sources */,
 				1463377C1EC1AEE6007A7440 /* CollectionPrettyCell.m in Sources */,
 				1466F5AE1EC2F60000AA238F /* CycleModel.m in Sources */,
@@ -729,6 +735,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -769,6 +776,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

@@ -40,40 +40,82 @@
     return _landScapeView;
 }
 
-- (IJKFFMoviePlayerController *)playerWithURLString:(NSString *)urlString{
-    if (!_player) {
-        // 设置只播放视频, 不播放声音
-        // github详解: https://github.com/Bilibili/ijkplayer/issues/1491#issuecomment-226714613
-        IJKFFOptions *option = [IJKFFOptions optionsByDefault];
-//        [option setPlayerOptionValue:@"1" forKey:@"an"];
-        // 开启硬解码
-        [option setPlayerOptionValue:@"1" forKey:@"videotoolbox"];
-        IJKFFMoviePlayerController *player = [[IJKFFMoviePlayerController alloc] initWithContentURLString:self.live_stream_url withOptions:option];
-        
-        player.view.frame = self.portraitView.bounds;
-        // 填充fill
-        player.scalingMode = IJKMPMovieScalingModeAspectFill;
-        // 设置自动播放
-        player.shouldAutoplay = YES;
-        
-        [self.portraitView addSubview:player.view];
-        
-        [player prepareToPlay];
-        
-        [player play];
-        _player = player;
-    }
-    return _player;
+- (void)playerWithURLString:(NSString *)urlString{
+    IJKFFOptions *options = [IJKFFOptions optionsByDefault];
+    [options setPlayerOptionIntValue:1  forKey:@"videotoolbox"];
+    
+    // 帧速率(fps) （可以改，确认非标准桢率会导致音画不同步，所以只能设定为15或者29.97）
+    [options setPlayerOptionIntValue:29.97 forKey:@"r"];
+    // -vol——设置音量大小，256为标准音量。（要设置成两倍音量时则输入512，依此类推
+    [options setPlayerOptionIntValue:512 forKey:@"vol"];
+    IJKFFMoviePlayerController *moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:@"http://hdl.9158.com/live/1075b7fc42e7a98279660085b3c09df7.flv" withOptions:options];
+    
+    [IJKFFMoviePlayerController setLogReport:YES];
+    
+    [IJKFFMoviePlayerController setLogLevel:k_IJK_LOG_UNKNOWN];
+    
+    [moviePlayer setOptionValue:@"0" forKey:@"safe" ofCategory:kIJKFFOptionCategoryFormat];
+    
+    [moviePlayer setOptionValue:@"http,https,tls,rtp,tcp,udp,crypto,httpproxy" forKey:@"protocol_whitelist" ofCategory:kIJKFFOptionCategoryFormat];
+
+    moviePlayer.view.frame = self.portraitView.bounds;
+    // 填充fill
+    moviePlayer.scalingMode = IJKMPMovieScalingModeAspectFill;
+    // 设置自动播放(必须设置为NO, 防止自动播放, 才能更好的控制直播的状态)
+    moviePlayer.shouldAutoplay = NO;
+    // 默认不显示
+    moviePlayer.shouldShowHudView = NO;
+    
+    [self.portraitView insertSubview:moviePlayer.view atIndex:0];
+    
+    [moviePlayer prepareToPlay];
+    
+    [self initObserver];
+    
+    self.player = moviePlayer;
 }
 
-- (void)removeFromSuperview
+- (void)initObserver
+{
+    // 监听视频是否播放完成
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didFinishPlay) name:IJKMPMoviePlayerPlaybackDidFinishNotification object:self.player];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stateDidChange) name:IJKMPMoviePlayerLoadStateDidChangeNotification object:self.player];
+}
+
+#pragma mark - notify method
+
+- (void)stateDidChange
+{
+    if ((self.player.loadState & IJKMPMovieLoadStatePlaythroughOK) != 0) {
+        if (!self.player.isPlaying) {
+            [self.player play];
+        }else{
+            // 如果是网络状态不好, 断开后恢复, 也需要去掉加载
+        }
+    }else if (self.player.loadState & IJKMPMovieLoadStateStalled){ // 网速不佳, 自动暂停状态
+        
+    }
+}
+
+- (void)didFinishPlay
+{
+    NSLog(@"加载状态...%ld %ld %s", self.player.loadState, self.player.playbackState, __func__);
+    // 因为网速或者其他原因导致直播stop了, 也要显示GIF
+    if (self.player.loadState & IJKMPMovieLoadStateStalled) {
+        return;
+    }
+    //    方法：
+    //      1、重新获取直播地址，服务端控制是否有地址返回。
+    //      2、用户http请求该地址，若请求成功表示直播未结束，否则结束
+}
+
+- (void)dealloc
 {
     if (_player) {
         [_player shutdown];
         [_player.view removeFromSuperview];
         _player = nil;
     }
-//    [super removeFromSuperview];
 }
 
 - (void)setLive_stream_url:(NSString *)live_stream_url{

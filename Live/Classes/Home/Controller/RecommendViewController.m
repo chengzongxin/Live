@@ -40,72 +40,27 @@
     RecommendGameView *_recommendGameView;
     
 }
+/*
+ * 轮播图
+ */
 @property (nonatomic,retain) RecommendCycleView *recommentCycleView;
+/*
+ * 推荐游戏
+ */
 @property (nonatomic,retain) RecommendGameView *recommendGameView;
+/*
+ * 中间以及底下显示的内容
+ */
 @property (nonatomic,retain) UICollectionView *collectionView;
+/*
+ * 最热数据、颜值数据、推荐数据
+ */
 @property (nonatomic,copy) NSArray *bigDataArray;
 @property (nonatomic,copy) NSArray *prettyArray;
 @property (nonatomic,copy) NSArray *hotCareArray;
 @end
 
 @implementation RecommendViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    // 初始化VC
-    self.view.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
-    
-    // 添加下面展示的推荐数据-collectionView
-    [self.view addSubview:self.collectionView];
-    // 在collectionView上面添加广告轮播
-    [_collectionView addSubview:self.recommentCycleView];
-    
-    // 在collectionView上添加推荐游戏
-    [_collectionView addSubview:self.recommendGameView];
-    
-    // 设置collectionView上面偏移出来的距离
-    _collectionView.contentInset = UIEdgeInsetsMake(kCycleViewH+kGameViewH, 0, 0, 0);
-    
-    // 设置下拉刷新
-    [self setupRefresh];
-    
-    // 第一次进入刷新请求
-    [self.collectionView.mj_header beginRefreshing];
-}
-
-- (void)setupRefresh {
-    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
-    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateIdle_64x66_"]] forState:MJRefreshStateIdle];
-    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_statePulling_64x66_"]] forState:MJRefreshStatePulling];
-    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateRefreshing_01_135x66_"],
-                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_02_135x66_"],
-                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_03_135x66_"],
-                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_04_135x66_"]] duration:0.5 forState:MJRefreshStateRefreshing];
-    [header setTimeLabelHidden:YES forState:MJRefreshStateRefreshing];
-    header.ignoredScrollViewContentInsetTop = kCycleViewH+kGameViewH;  // 忽略insets
-    self.collectionView.mj_header = header;
-}
-
-- (void)refreshData
-{
-    // 请求推荐数据
-    [RecommendViewModel requestRecommendData:^(NSArray *bigDataArray, NSArray *prettyArray, NSArray *hotArray) {
-        _bigDataArray = bigDataArray;
-        _prettyArray = prettyArray;
-        _hotCareArray = hotArray;
-        [_collectionView reloadData];
-        
-        //刷新游戏推荐
-        [self.recommendGameView reloadDataWithModelArray:hotArray];
-        
-        [self.collectionView.mj_header endRefreshing];
-    }];
-    // 请求轮播数据
-    [RecommendViewModel requestCycleData:^(NSArray *cycleArray) {
-        [self.recommentCycleView reloadDataWithModelArray:cycleArray];
-    }];
-}
 
 - (RecommendCycleView *)recommentCycleView
 {
@@ -150,6 +105,69 @@
     }
     return _collectionView;
 }
+
+- (void)viewDidLoad {
+    //  显示动画
+    self.contentView = self.collectionView;
+    
+    [super viewDidLoad];
+    // 初始化VC
+    self.view.backgroundColor = [UIColor ColorWithHexString:@"#F4F4F4" withAlpha:1];
+    
+    // 添加下面展示的推荐数据-collectionView
+    [self.view addSubview:self.collectionView];
+    // 在collectionView上面添加广告轮播
+    [_collectionView addSubview:self.recommentCycleView];
+    
+    // 在collectionView上添加推荐游戏
+    [_collectionView addSubview:self.recommendGameView];
+    
+    // 设置collectionView上面偏移出来的距离
+    _collectionView.contentInset = UIEdgeInsetsMake(kCycleViewH+kGameViewH, 0, 0, 0);
+    
+    // 设置下拉刷新
+    [self setupRefresh];
+    
+    // 第一次进入刷新请求
+    [self.collectionView.mj_header beginRefreshing];
+}
+
+
+- (void)setupRefresh {
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshData)];
+    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateIdle_64x66_"]] forState:MJRefreshStateIdle];
+    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_statePulling_64x66_"]] forState:MJRefreshStatePulling];
+    [header setImages:@[[UIImage imageNamed:@"dyla_img_mj_stateRefreshing_01_135x66_"],
+                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_02_135x66_"],
+                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_03_135x66_"],
+                        [UIImage imageNamed:@"dyla_img_mj_stateRefreshing_04_135x66_"]] duration:0.5 forState:MJRefreshStateRefreshing];
+    [header setTimeLabelHidden:YES forState:MJRefreshStateRefreshing];
+    header.ignoredScrollViewContentInsetTop = kCycleViewH+kGameViewH;  // 忽略insets
+    self.collectionView.mj_header = header;
+}
+
+- (void)refreshData
+{
+    // 请求推荐数据
+    [RecommendViewModel requestRecommendData:^(NSArray *bigDataArray, NSArray *prettyArray, NSArray *hotArray) {
+        _bigDataArray = bigDataArray;
+        _prettyArray = prettyArray;
+        _hotCareArray = hotArray;
+        [_collectionView reloadData];
+        
+        //刷新游戏推荐
+        [self.recommendGameView reloadDataWithModelArray:hotArray];
+        
+        [self.collectionView.mj_header endRefreshing];
+        
+        [self animationFinished];
+    }];
+    // 请求轮播数据
+    [RecommendViewModel requestCycleData:^(NSArray *cycleArray) {
+        [self.recommentCycleView reloadDataWithModelArray:cycleArray];
+    }];
+}
+
 
 #pragma mark -- colloctionView数据源协议
 
@@ -247,6 +265,7 @@
     }
     UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
     PlayerViewController *playerVc = [story instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+    playerVc.live_stream_url = @"http://www.douyu.com/940080";
     [self.navigationController pushViewController:playerVc animated:YES];
 }
 
