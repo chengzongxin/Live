@@ -235,6 +235,9 @@
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="iN0-l3-epB" id="nGd-2R-rnj"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -297,8 +300,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="back" destination="I4Q-ok-cRN" id="zpc-BZ-oE9"/>
+                <outlet property="bottomControlView" destination="JNm-cH-Okp" id="N94-EL-Hvn"/>
+                <outlet property="bottomViewConstraint" destination="xUX-Kj-YWQ" id="otf-8r-vLH"/>
+                <outlet property="statusView" destination="CHx-Bm-nPj" id="zJ1-2E-gBV"/>
+                <outlet property="topControlView" destination="P7Q-q0-021" id="42t-Wq-s1k"/>
             </connections>
-            <point key="canvasLocation" x="26.5" y="-181"/>
+            <point key="canvasLocation" x="-203" y="-273"/>
         </view>
     </objects>
     <resources>

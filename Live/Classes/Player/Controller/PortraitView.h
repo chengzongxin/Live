@@ -14,6 +14,8 @@
 @optional
 - (void)portraitViewDidClickBackBtn:(PortraitView *)portControlView;
 
+- (void)portraitViewDidClickPauseBtn:(PortraitView *)portControlView;
+
 - (void)portraitView:(PortraitView *)portraitView setLandScape:(UIInterfaceOrientation)interfaceOrientation;
 
 @end

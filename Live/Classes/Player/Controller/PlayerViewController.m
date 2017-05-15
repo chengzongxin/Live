@@ -52,7 +52,7 @@
     
     [IJKFFMoviePlayerController setLogReport:YES];
     
-    [IJKFFMoviePlayerController setLogLevel:k_IJK_LOG_UNKNOWN];
+    [IJKFFMoviePlayerController setLogLevel:k_IJK_LOG_WARN];
     
     [moviePlayer setOptionValue:@"0" forKey:@"safe" ofCategory:kIJKFFOptionCategoryFormat];
     
@@ -72,9 +72,9 @@
     
     [moviePlayer prepareToPlay];
     
-    [self initObserver];
-    
     self.player = moviePlayer;
+    
+    [self initObserver];
 }
 
 - (void)initObserver
@@ -132,14 +132,23 @@
     
     [self.view addSubview:self.portraitView];
     
-//    if (self.live_stream_url) {
-//        [self playerWithURLString:self.live_stream_url];
-//    }
-    
     [self listeningNoticefication];
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    // 设置状态栏的样式
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+}
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
+    
+    // 设置回状态栏的样式
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
 
 #pragma mark - portraitView代理方法
 
@@ -148,10 +157,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
--(void)viewWillDisappear:(BOOL)animated
+- (void)portraitViewDidClickPauseBtn:(PortraitView *)portControlView
 {
-    self.navigationController.navigationBarHidden = NO;
+    if ([self.player isPlaying]) {
+        [self.player pause];
+    }else{
+        [self.player play];
+    }
 }
+
 /*
  *  全屏
  */
@@ -204,6 +218,8 @@
     
     // app进入前台
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidEnterPlayGround) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    
 }
 
 /**
