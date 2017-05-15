@@ -14,6 +14,7 @@
 #import "PrettyDataModel.h"
 #import "HotCareModel.h"
 #import "CycleModel.h"
+#import "QMRecommendModel.h"
 @interface RecommendViewModel()
 {
     NSMutableArray *_hotArray;
@@ -88,6 +89,24 @@
     });
 }
 
++ (void)requestQMRecommendData:(void(^)(NSArray *data))block
+{
+    //http://www.quanmin.tv/json/app/index/recommend/list-iphone.json?1494589547
+    NSDate *date = [NSDate date];
+    NSTimeInterval time = [date timeIntervalSince1970];
+    NSMutableArray *array = [NSMutableArray array];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%d",@"http://www.quanmin.tv/json/app/index/recommend/list-iphone.json?",(int)time];
+    [NetWork requestDataMethod:GET WithUrl:urlStr parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSArray *data = responseObject[@"room"];
+        for (NSDictionary *dict in data) {
+            QMRecommendModel *model = [[QMRecommendModel alloc] initWithDict:dict];
+            [array addObject:model];
+        }
+        block(array);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+    }];
+}
 
 + (void)requestCycleData:(void(^)(NSArray *cycleArray))block
 {

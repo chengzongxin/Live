@@ -18,6 +18,7 @@
 #import "RecommendGameView.h"
 #import "RefreshHeader.h"
 #import "PlayerViewController.h"
+#import "QMRecommendModel.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
@@ -36,6 +37,7 @@
     NSArray *_bigDataArray;
     NSArray *_prettyArray;
     NSArray *_hotCareArray;
+    NSArray *_qmDataArray;
     RecommendCycleView *_recommentCycleView;
     RecommendGameView *_recommendGameView;
     
@@ -58,6 +60,7 @@
 @property (nonatomic,copy) NSArray *bigDataArray;
 @property (nonatomic,copy) NSArray *prettyArray;
 @property (nonatomic,copy) NSArray *hotCareArray;
+@property (nonatomic,copy) NSArray *qmDataArray;
 @end
 
 @implementation RecommendViewController
@@ -162,6 +165,10 @@
         
         [self animationFinished];
     }];
+    
+    [RecommendViewModel requestQMRecommendData:^(NSArray *data) {
+        _qmDataArray = data;
+    }];
     // 请求轮播数据
     [RecommendViewModel requestCycleData:^(NSArray *cycleArray) {
         [self.recommentCycleView reloadDataWithModelArray:cycleArray];
@@ -183,7 +190,8 @@
     }else if (section == 1){ // pretty
         return MIN(4, _prettyArray.count) ;
     }else{ // hotcare
-        return MIN(4, [(HotCareModel *)_hotCareArray[section - 2] room_list].count);
+//        return MIN(4, [(HotCareModel *)_hotCareArray[section - 2] room_list].count);
+        return [((QMRecommendModel *)_qmDataArray[section -2]) list].count;
     }
     
 }
@@ -202,8 +210,8 @@
             head.title.text = @"颜值";
             head.iconImageView.image = [UIImage imageNamed:@"home_header_phone_18x18_"];
         }else{
-            HotCareModel *hotCareModel = _hotCareArray[indexPath.section - 2];
-            head.title.text = hotCareModel.tag_name;
+            QMRecommendModel *model = _qmDataArray[indexPath.section - 2];
+            head.title.text = model.name;
             head.iconImageView.image = [UIImage imageNamed:@"home_header_normal_18x18_"];
         }
 //        [head.moreBtn addTarget:self action:@selector(clickMoreLiveButton) forControlEvents:UIControlEventTouchDown];
@@ -231,9 +239,9 @@
         [(CollectionPrettyCell *)cell setPrettyModel:_prettyArray[indexPath.item]];
     }else { // hotcare 第2-12组
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:kNormalCellID forIndexPath:indexPath];
-        HotCareModel *hotcare = _hotCareArray[indexPath.section - 2];
-        NSArray *room_list = hotcare.room_list;
-        RoomListModel *room = room_list[indexPath.item];
+        QMRecommendModel *hotcare = _qmDataArray[indexPath.section - 2];
+        NSArray *room_list = hotcare.list;
+        List *room = room_list[indexPath.item];
         [(CollectionNormalCell *)cell setRoomListModel:room];
     }
     return cell;
@@ -249,6 +257,7 @@
     }
 }
 
+#pragma mark - collectionView代理方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MYLog(@"%@",indexPath);
@@ -259,14 +268,19 @@
         PrettyDataModel *pretty = _prettyArray[indexPath.item];
         MYLog(@"%@",pretty);
     }else{
+        List *list = [_qmDataArray[indexPath.section -2] list][indexPath.item];
         
-        MYLog(@"%@",_hotCareArray);
-//        HotCareModel *hot = (_hotCareArray[indexPath.section])@[@"room_list"][indexPath.item];
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+        PlayerViewController *playerVc = [story instantiateViewControllerWithIdentifier:@"PlayerViewController"];
+        
+        playerVc.live_stream_url = list.stream;
+        
+        [self.navigationController pushViewController:playerVc animated:YES];
+        
+        
+       
     }
-    UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
-    PlayerViewController *playerVc = [story instantiateViewControllerWithIdentifier:@"PlayerViewController"];
-    playerVc.live_stream_url = @"http://www.douyu.com/940080";
-    [self.navigationController pushViewController:playerVc animated:YES];
+    
 }
 
 

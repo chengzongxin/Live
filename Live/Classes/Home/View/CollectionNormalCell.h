@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "BIgDataModel.h"
 #import "HotCareModel.h"
+#import "QMRecommendModel.h"
 @interface CollectionNormalCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *online;
 @property (weak, nonatomic) IBOutlet UIButton *titleButton;
 @property (nonatomic,retain) BIgDataModel *bigDataModel;
-@property (nonatomic,retain) RoomListModel *roomListModel;
+@property (nonatomic,retain) List *roomListModel;
 
 @end

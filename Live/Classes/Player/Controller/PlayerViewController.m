@@ -48,7 +48,7 @@
     [options setPlayerOptionIntValue:29.97 forKey:@"r"];
     // -vol——设置音量大小，256为标准音量。（要设置成两倍音量时则输入512，依此类推
     [options setPlayerOptionIntValue:512 forKey:@"vol"];
-    IJKFFMoviePlayerController *moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:@"http://hdl.9158.com/live/1075b7fc42e7a98279660085b3c09df7.flv" withOptions:options];
+    IJKFFMoviePlayerController *moviePlayer = [[IJKFFMoviePlayerController alloc] initWithContentURLString:urlString withOptions:options];
     
     [IJKFFMoviePlayerController setLogReport:YES];
     
@@ -57,6 +57,8 @@
     [moviePlayer setOptionValue:@"0" forKey:@"safe" ofCategory:kIJKFFOptionCategoryFormat];
     
     [moviePlayer setOptionValue:@"http,https,tls,rtp,tcp,udp,crypto,httpproxy" forKey:@"protocol_whitelist" ofCategory:kIJKFFOptionCategoryFormat];
+    
+//    [moviePlayer setOptionValue:@"ijkplayer" forKey:@"user_agent" ofCategory:kIJKFFOptionCategoryFormat];
 
     moviePlayer.view.frame = self.portraitView.bounds;
     // 填充fill
@@ -129,6 +131,10 @@
     self.navigationController.navigationBarHidden  = YES;
     
     [self.view addSubview:self.portraitView];
+    
+//    if (self.live_stream_url) {
+//        [self playerWithURLString:self.live_stream_url];
+//    }
     
     [self listeningNoticefication];
 }

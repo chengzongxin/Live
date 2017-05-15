@@ -9,6 +9,7 @@
 #import "CollectionNormalCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "NSObject+Extend.h"
+
 @implementation CollectionNormalCell
 
 - (void)awakeFromNib {
@@ -25,13 +26,13 @@
     [self.titleButton setTitle:bigDataModel.room_name forState:UIControlStateNormal];
 }
 
-- (void)setRoomListModel:(RoomListModel *)roomListModel
+- (void)setRoomListModel:(List *)roomListModel
 {
     _roomListModel = roomListModel;
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:roomListModel.room_src]];
-    self.name.text = roomListModel.nickname;
-    self.online.text = [NSString stringWithFormat:@"%d",roomListModel.online];
-    [self.titleButton setTitle:roomListModel.room_name forState:UIControlStateNormal];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:roomListModel.thumb]];
+    self.name.text = roomListModel.nick;
+    self.online.text = [NSString stringWithFormat:@"%d",roomListModel.view];
+    [self.titleButton setTitle:roomListModel.title forState:UIControlStateNormal];
 }
 
 

@@ -50,6 +50,7 @@
 		149608B91EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */; };
 		149608BA1EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		149608C51EC5D1FD0031F1F9 /* RefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 149608C41EC5D1FD0031F1F9 /* RefreshHeader.m */; };
+		149608C81EC5D91C0031F1F9 /* QMRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 149608C71EC5D91C0031F1F9 /* QMRecommendModel.m */; };
 		14999FA21EC586A20007211E /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14999FA11EC586A20007211E /* BaseViewController.m */; };
 		14A589811EC45212006E5B32 /* PortraitView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589801EC45212006E5B32 /* PortraitView.m */; };
 		14A589831EC4521A006E5B32 /* PortraitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589821EC4521A006E5B32 /* PortraitView.xib */; };
@@ -147,6 +148,8 @@
 		149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IJKMediaFrameworkWithSSL.framework; sourceTree = "<group>"; };
 		149608C31EC5D1FD0031F1F9 /* RefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshHeader.h; sourceTree = "<group>"; };
 		149608C41EC5D1FD0031F1F9 /* RefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefreshHeader.m; sourceTree = "<group>"; };
+		149608C61EC5D91C0031F1F9 /* QMRecommendModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QMRecommendModel.h; sourceTree = "<group>"; };
+		149608C71EC5D91C0031F1F9 /* QMRecommendModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QMRecommendModel.m; sourceTree = "<group>"; };
 		14999FA01EC586A20007211E /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		14999FA11EC586A20007211E /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		14A5897F1EC45212006E5B32 /* PortraitView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PortraitView.h; sourceTree = "<group>"; };
@@ -269,6 +272,8 @@
 				146337911EC1D5F2007A7440 /* RoomListModel.m */,
 				1466F5AC1EC2F60000AA238F /* CycleModel.h */,
 				1466F5AD1EC2F60000AA238F /* CycleModel.m */,
+				149608C61EC5D91C0031F1F9 /* QMRecommendModel.h */,
+				149608C71EC5D91C0031F1F9 /* QMRecommendModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				1463377C1EC1AEE6007A7440 /* CollectionPrettyCell.m in Sources */,
 				1466F5AE1EC2F60000AA238F /* CycleModel.m in Sources */,
 				14A589811EC45212006E5B32 /* PortraitView.m in Sources */,
+				149608C81EC5D91C0031F1F9 /* QMRecommendModel.m in Sources */,
 				146337841EC1BC4E007A7440 /* RecommendViewModel.m in Sources */,
 				141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */,
 				14D33E1D1EC43E65006CCA63 /* PlayerViewController.m in Sources */,

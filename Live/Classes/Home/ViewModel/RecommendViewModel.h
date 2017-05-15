@@ -13,4 +13,6 @@
 + (void)requestRecommendData:(void (^)(NSArray *bigDataArray,NSArray *prettyArray,NSArray *hotArray))block;
 // 请求轮播数据
 + (void)requestCycleData:(void(^)(NSArray *cycleArray))block;
+// 全民直播
++ (void)requestQMRecommendData:(void(^)(NSArray *data))block;
 @end
