@@ -29,6 +29,22 @@
     UIApplication *application = [UIApplication sharedApplication];
     
     [application setStatusBarHidden:NO withAnimation:UIStatusBarAnimationFade];
+    
+    // 添加一个手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapControlView:)];
+    [self.blackCoverView addGestureRecognizer:tap];
+}
+
+/**
+ *  点击了控制view的遮盖view，用来显示和隐藏控制的view
+ */
+- (void)tapControlView:(UITapGestureRecognizer *)tapGest {
+    MYLogFun;
+    [UIApplication sharedApplication].statusBarHidden = ![[UIApplication sharedApplication] isStatusBarHidden];
+    self.statusView.hidden = ![self.statusView isHidden];
+    self.topControlView.hidden = ![self.topControlView isHidden];
+    self.bottomControlView.hidden = ![self.bottomControlView isHidden];
+    
 }
 
 - (void)addObserver{
@@ -36,6 +52,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)addPlayerView:(UIView *)view{
+    [self.blackCoverView insertSubview:view atIndex:0];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -107,36 +127,6 @@
         [self.delegate landScapeView:self setPortrait:UIInterfaceOrientationPortrait];
     }
 }
-
-// 点击空白区域隐藏controlView
-- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
-    //1.判断自己能否接收事件
-    if(self.userInteractionEnabled == NO || self.hidden == YES || self.alpha <= 0.01) {
-        return nil;
-    }
-    //2.判断当前点在不在当前View.
-    if (![self pointInside:point withEvent:event]) {
-        return nil;
-    }
-    BOOL pointAtStatusView = CGRectContainsPoint(self.statusView.frame, point);
-    BOOL pointAtTopControlView = CGRectContainsPoint(self.topControlView.frame, point);
-    BOOL pointAtBottomControlView = CGRectContainsPoint(self.bottomControlView.frame, point);
-    
-    if (pointAtStatusView || pointAtTopControlView || pointAtBottomControlView) {
-        return [super hitTest:point withEvent:event];
-    } else {
-        if (event.timestamp != _lastTimeStamp) {  //避免重复调用
-            [UIApplication sharedApplication].statusBarHidden = ![[UIApplication sharedApplication] isStatusBarHidden];
-            self.statusView.hidden = ![self.statusView isHidden];
-            self.topControlView.hidden = ![self.topControlView isHidden];
-            self.bottomControlView.hidden = ![self.bottomControlView isHidden];
-            _lastTimeStamp = event.timestamp;
-        }
-        return nil;
-    }
-    
-}
-
 
 
 

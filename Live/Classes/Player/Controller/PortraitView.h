@@ -23,6 +23,9 @@
 
 @interface PortraitView : UIView
 
+
+@property (weak, nonatomic) IBOutlet UIView *blackCoverView;
+
 @property (weak, nonatomic) IBOutlet UIButton *back;
 
 @property (weak, nonatomic) IBOutlet UIButton *more;
@@ -36,4 +39,6 @@
 @property (nonatomic,weak) id<PortraitViewDelegate> delegate;
 
 + (instancetype)portraitView;
+
+- (void)addPlayerView:(UIView *)view;
 @end

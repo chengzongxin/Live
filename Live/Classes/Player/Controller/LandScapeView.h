@@ -22,7 +22,8 @@
 
 @property (nonatomic,weak) id<LandScapeViewDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UIButton *back;
+
+@property (weak, nonatomic) IBOutlet UIView *blackCoverView;
 
 @property (weak, nonatomic) IBOutlet UIView *statusView;
 
@@ -32,8 +33,14 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewConstraint;
 
+@property (weak, nonatomic) IBOutlet UIButton *back;
+
+@property (weak, nonatomic) IBOutlet UILabel *liveTitle;
+
 @property (nonatomic,assign) BOOL isClickReturn;
 
 + (instancetype)landScapeView;
+
+- (void)addPlayerView:(UIView *)view;
 
 @end

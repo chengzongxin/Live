@@ -16,7 +16,7 @@
 @end
 
 
-@interface UIColor (Extend)
+@interface UIColor (Extension)
 // color = #FFFFFF 或者 0xFFFFFF  [UIColor ColorWithHexString:@"#cccccc" withAlpha:1];
 + (UIColor *)ColorWithHexString: (NSString *)color withAlpha:(CGFloat)alpha;
 

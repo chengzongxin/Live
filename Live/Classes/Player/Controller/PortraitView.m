@@ -9,12 +9,36 @@
 #import "PortraitView.h"
 
 @interface PortraitView (){
-    NSTimeInterval _lastTimeStamp;
 }
 
 @end
 
 @implementation PortraitView
+
+- (void)awakeFromNib{
+    [super awakeFromNib];
+    
+    // 添加一个手势
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapControlView:)];
+    [self.blackCoverView addGestureRecognizer:tap];
+}
+
+/**
+ *  点击了控制view的遮盖view，用来显示和隐藏控制的view
+ */
+- (void)tapControlView:(UITapGestureRecognizer *)tapGest {
+    MYLogFun;
+    self.back.hidden = ![self.back isHidden];
+    self.more.hidden = ![self.more isHidden];
+    self.gift.hidden = ![self.gift isHidden];
+    self.play.hidden = ![self.play isHidden];
+    self.fullScreen.hidden = ![self.fullScreen isHidden];
+    
+}
+
+- (void)addPlayerView:(UIView *)view{
+    [self.blackCoverView insertSubview:view atIndex:0];
+}
 
 + (instancetype)portraitView
 {
@@ -44,7 +68,7 @@
         [self.delegate portraitView:self setLandScape:UIInterfaceOrientationLandscapeRight];
     }
 }
-
+/*
 // 点击空白区域隐藏controlView
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event {
     //1.判断自己能否接收事件
@@ -66,18 +90,9 @@
     if (pointAtBackBtn || pointAtMoreBtn || pointAtGiftBtn || pointAtPlayOrPauseBtn || pointAtFullScreenBtn) {
         return [super hitTest:point withEvent:event];
     } else {
-        double timestap = event.timestamp - _lastTimeStamp;
-        MYLog(@"%f",timestap);
-        if (event.timestamp != _lastTimeStamp) {  //避免重复调用
-            self.back.hidden = ![self.back isHidden];
-            self.more.hidden = ![self.more isHidden];
-            self.gift.hidden = ![self.gift isHidden];
-            self.play.hidden = ![self.play isHidden];
-            self.fullScreen.hidden = ![self.fullScreen isHidden];
-            _lastTimeStamp = event.timestamp;
-        }
+ 
         return nil;
     }
 }
-
+*/
 @end

@@ -275,10 +275,9 @@
         
         playerVc.live_stream_url = list.stream;
         
+        playerVc.list = list;
+        
         [self.navigationController pushViewController:playerVc animated:YES];
-        
-        
-       
     }
     
 }

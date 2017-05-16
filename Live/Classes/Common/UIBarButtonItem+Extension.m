@@ -6,9 +6,9 @@
 //  Copyright © 2017年 Joe. All rights reserved.
 //
 
-#import "UIBarButtonItem+Extend.h"
+#import "UIBarButtonItem+Extension.h"
 
-@implementation UIBarButtonItem (Extend)
+@implementation UIBarButtonItem (Extension)
 - (id)initWithIcon:(NSString *)icon highlightedIcon:(NSString *)highlighted target:(id)target action:(SEL)action
 {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];

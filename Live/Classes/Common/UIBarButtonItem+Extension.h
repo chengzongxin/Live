@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIBarButtonItem (Extend)
+@interface UIBarButtonItem (Extension)
 + (id)itemWithIcon:(NSString *)icon highlightedIcon:(NSString *)highlighted target:(id)target action:(SEL)action;
 - (id)initWithIcon:(NSString *)icon highlightedIcon:(NSString *)highlighted target:(id)target action:(SEL)action;
 - (id)initWithTitle:(NSString *)title icon:(NSString *)icon target:(id)target action:(SEL)action;

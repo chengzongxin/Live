@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QMRecommendModel.h"
 
 @interface PlayerViewController : UIViewController
 
 @property (nonatomic,copy) NSString *live_stream_url;
+
+@property (nonatomic,retain) List *list;
 
 @end

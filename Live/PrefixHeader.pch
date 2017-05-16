@@ -13,8 +13,9 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 #import <Masonry.h>
-#import "UIColor+Extend.h"
-#import "UIBarButtonItem+Extend.h"
+#import "UIColor+Extension.h"
+#import "UIBarButtonItem+Extension.h"
+#import "UIView+Extension.h"
 
 #define IS_IPHONE4      ([[UIScreen mainScreen] bounds].size.height == 480 ? YES : NO)
 #define IS_IPHONE5      ([[UIScreen mainScreen] bounds].size.height == 568 ? YES : NO)

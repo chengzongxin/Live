@@ -14,6 +14,8 @@
 @interface PlayerViewController ()<PortraitViewDelegate,LandScapeViewDelegate>{
 }
 
+@property (nonatomic,retain) UIView *blackCoverView;
+
 @property (nonatomic,retain) PortraitView *portraitView;
 
 @property (nonatomic,retain) LandScapeView *landScapeView;
@@ -36,6 +38,7 @@
     if (!_landScapeView) {
         _landScapeView = [LandScapeView landScapeView];
         _landScapeView.delegate = self;
+        _landScapeView.liveTitle.text = self.list.title;
     }
     return _landScapeView;
 }
@@ -68,7 +71,9 @@
     // 默认不显示
     moviePlayer.shouldShowHudView = NO;
     
-    [self.portraitView insertSubview:moviePlayer.view atIndex:0];
+//    [self.portraitView insertSubview:moviePlayer.view atIndex:0];
+    
+    [self.portraitView addPlayerView:moviePlayer.view];
     
     [moviePlayer prepareToPlay];
     
@@ -130,9 +135,39 @@
     
     self.navigationController.navigationBarHidden  = YES;
     
+//    [self setupUI];
+    
     [self.view addSubview:self.portraitView];
     
     [self listeningNoticefication];
+}
+
+//- (void)setupUI{
+//    // 在顶部添加一个黑色的遮盖
+//    UIView *blackCoverView = [[UIView alloc] init];
+//    blackCoverView.backgroundColor = [UIColor blackColor];
+//    [self.view addSubview:blackCoverView];
+//    self.blackCoverView = blackCoverView;
+//    // 设置黑色遮盖view的约束
+//    [self.blackCoverView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(self.view.mas_top);
+//        make.left.equalTo(self.view.mas_left);
+//        make.right.equalTo(self.view.mas_right);
+//        make.height.offset(self.view.width * 9 / 16 + 20);
+//    }];
+//    
+//    [self.blackCoverView addSubview:_portraitView];
+//    
+//    // 添加一个手势
+//    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapControlView:)];
+//    [self.blackCoverView addGestureRecognizer:tap];
+//}
+
+/**
+ *  点击了控制view的遮盖view，用来显示和隐藏控制的view
+ */
+- (void)tapControlView:(UITapGestureRecognizer *)tapGest {
+    MYLogFun;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -260,7 +295,7 @@
     self.landScapeView = nil;
     [self.view addSubview:self.portraitView];
     self.player.view.frame = self.portraitView.frame;
-    [self.portraitView insertSubview:self.player.view atIndex:0];
+    [self.portraitView addPlayerView:self.player.view];
     [self.view layoutIfNeeded];
 }
 
@@ -269,7 +304,7 @@
     self.portraitView = nil;
     self.player.view.frame = self.landScapeView.frame;
     [self.view addSubview:self.landScapeView];
-    [self.landScapeView insertSubview:self.player.view atIndex:0];
+    [self.landScapeView addPlayerView:self.player.view];
     [self.view layoutIfNeeded];
 }
 

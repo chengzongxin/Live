@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Joe. All rights reserved.
 //
 
-#import "UIColor+Extend.h"
+#import "UIColor+Extension.h"
 
 @implementation ColorModel
 
@@ -14,7 +14,7 @@
 @end
 
 
-@implementation UIColor (Extend)
+@implementation UIColor (Extension)
 #pragma mark 16进制颜色转换
 // color = #FFFFFF 或者 0xFFFFFF  [UIColor ColorWithHexString:@"#cccccc" withAlpha:1];
 + (UIColor *)ColorWithHexString:(NSString *)color withAlpha:(CGFloat)alpha
