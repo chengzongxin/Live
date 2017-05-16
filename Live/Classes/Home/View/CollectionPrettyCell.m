@@ -8,7 +8,7 @@
 
 #import "CollectionPrettyCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "NSObject+Extend.h"
+
 @implementation CollectionPrettyCell
 
 - (void)setPrettyModel:(PrettyDataModel *)prettyModel

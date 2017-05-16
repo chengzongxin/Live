@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSObject (Extend)
+@interface NSObject (Extension)
 /* keyvalue 字典转模型方法 */
 - (instancetype)initWithDict:(NSDictionary *)dict;
 /* 获取对象的所有属性，不包括属性值 */

@@ -8,7 +8,6 @@
 
 #import "CollectionNormalCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "NSObject+Extend.h"
 
 @implementation CollectionNormalCell
 

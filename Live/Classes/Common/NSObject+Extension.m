@@ -6,10 +6,10 @@
 //  Copyright © 2017年 Joe. All rights reserved.
 //
 
-#import "NSObject+Extend.h"
+#import "NSObject+Extension.h"
 #import <objc/runtime.h>
 
-@implementation NSObject (Extend)
+@implementation NSObject (Extension)
 
 - (instancetype)initWithDict:(NSDictionary *)dict
 {
