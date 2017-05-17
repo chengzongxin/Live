@@ -31,10 +31,11 @@
 #define MYLogFun        NSLog((@"%s [Line %d] "), __FUNCTION__, __LINE__)
 #else
 #define MYLog(...)      NSLog(...)
-//#define NSLog(...)
+
 #endif
 
 
+#define NSLog(...)
 //  单例
 
 /*

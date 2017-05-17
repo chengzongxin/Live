@@ -41,5 +41,9 @@
 	<false/>
 	<key>UIMainStoryboardFile~iphone</key>
 	<string>Main</string>
+	<key>NSCameraUsageDescription</key>
+	<string>允许相机</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>允许麦克风</string>
 </dict>
 </plist>

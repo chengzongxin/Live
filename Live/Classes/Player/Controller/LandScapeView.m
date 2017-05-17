@@ -39,7 +39,6 @@
  *  点击了控制view的遮盖view，用来显示和隐藏控制的view
  */
 - (void)tapControlView:(UITapGestureRecognizer *)tapGest {
-    MYLogFun;
     [UIApplication sharedApplication].statusBarHidden = ![[UIApplication sharedApplication] isStatusBarHidden];
     self.statusView.hidden = ![self.statusView isHidden];
     self.topControlView.hidden = ![self.topControlView isHidden];

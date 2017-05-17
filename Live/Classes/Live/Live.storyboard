@@ -21,7 +21,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </view>
-                    <navigationItem key="navigationItem" id="2Bc-ZG-MVn"/>
+                    <navigationItem key="navigationItem" id="2Bc-ZG-MVn">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Q9F-41-kFe">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fVu-Vl-ULz">
+                                <rect key="frame" x="276" y="7" width="83" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="切换摄像头"/>
+                                <connections>
+                                    <action selector="toggleCapture:" destination="tjj-aD-rhk" eventType="touchUpInside" id="0De-KW-Jxp"/>
+                                </connections>
+                            </button>
+                            <connections>
+                                <action selector="toggleCapture:" destination="tjj-aD-rhk" id="97I-Ve-Rla"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0W-iC-1z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
