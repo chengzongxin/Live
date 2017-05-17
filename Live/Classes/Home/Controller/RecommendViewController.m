@@ -19,6 +19,7 @@
 #import "RefreshHeader.h"
 #import "PlayerViewController.h"
 #import "QMRecommendModel.h"
+#import "ShowViewController.h"
 #define kNormalCellID @"kNormalCellID"
 #define kPrettyCellID @"kPrettyCellID"
 #define kRecommendHeaderViewID @"kRecommendHeaderViewID"
@@ -262,11 +263,21 @@
 {
     MYLog(@"%@",indexPath);
     if (indexPath.section == 0) {  // hot
-        BIgDataModel *bigDataModel = _bigDataArray[indexPath.item];
-        MYLog(@"%@",bigDataModel);
+//        BIgDataModel *bigDataModel = _bigDataArray[indexPath.item];
+//        MYLog(@"%@",bigDataModel);
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+        ShowViewController *showVc = [story instantiateViewControllerWithIdentifier:@"ShowViewController"];
+        showVc.live_stream_url = @"rtmp://192.168.10.125:1935/rtmplive/room";
+//        [self.navigationController pushViewController:playerVc animated:YES];
+        [self presentViewController:showVc animated:YES completion:nil];
     }else if (indexPath.section == 1) { // pretty
-        PrettyDataModel *pretty = _prettyArray[indexPath.item];
-        MYLog(@"%@",pretty);
+//        PrettyDataModel *pretty = _prettyArray[indexPath.item];
+//        MYLog(@"%@",pretty);
+        UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
+        ShowViewController *showVc = [story instantiateViewControllerWithIdentifier:@"ShowViewController"];
+        showVc.live_stream_url = @"rtmp://192.168.10.125:1935/rtmplive/room";
+//        [self.navigationController pushViewController:playerVc animated:YES];
+        [self presentViewController:showVc animated:YES completion:nil];
     }else{
         List *list = [_qmDataArray[indexPath.section -2] list][indexPath.item];
         

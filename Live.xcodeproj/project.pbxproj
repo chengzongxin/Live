@@ -42,6 +42,7 @@
 		1466F5B81EC31D8B00AA238F /* RecommendGameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1466F5B71EC31D8B00AA238F /* RecommendGameView.xib */; };
 		1466F5BC1EC32A0A00AA238F /* CollectionGameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1466F5BA1EC32A0A00AA238F /* CollectionGameCell.m */; };
 		1466F5BD1EC32A0A00AA238F /* CollectionGameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1466F5BB1EC32A0A00AA238F /* CollectionGameCell.xib */; };
+		146747881ECC4AFE00A914C8 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146747871ECC4AFE00A914C8 /* ShowViewController.m */; };
 		146B2D731EC04DB400974785 /* PageTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D721EC04DB400974785 /* PageTitleView.m */; };
 		146B2D761EC0691700974785 /* PageContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146B2D751EC0691700974785 /* PageContentView.m */; };
 		149608B91EC5BC880031F1F9 /* IJKMediaFrameworkWithSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149608B71EC5BC210031F1F9 /* IJKMediaFrameworkWithSSL.framework */; };
@@ -137,6 +138,8 @@
 		1466F5B91EC32A0A00AA238F /* CollectionGameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionGameCell.h; sourceTree = "<group>"; };
 		1466F5BA1EC32A0A00AA238F /* CollectionGameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionGameCell.m; sourceTree = "<group>"; };
 		1466F5BB1EC32A0A00AA238F /* CollectionGameCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionGameCell.xib; sourceTree = "<group>"; };
+		146747861ECC4AFE00A914C8 /* ShowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
+		146747871ECC4AFE00A914C8 /* ShowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
 		146B2D701EC027C200974785 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		146B2D711EC04DB400974785 /* PageTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageTitleView.h; sourceTree = "<group>"; };
 		146B2D721EC04DB400974785 /* PageTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageTitleView.m; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 			children = (
 				1428B7C41EBCA4F900D072B7 /* LiveViewController.h */,
 				1428B7C51EBCA4F900D072B7 /* LiveViewController.m */,
+				146747861ECC4AFE00A914C8 /* ShowViewController.h */,
+				146747871ECC4AFE00A914C8 /* ShowViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -682,6 +687,7 @@
 				14F5BFD31ECAD08400EEFC54 /* UIBarButtonItem+Extension.m in Sources */,
 				1466F5B21EC3004800AA238F /* CollectionCycleCell.m in Sources */,
 				146337891EC1C443007A7440 /* BIgDataModel.m in Sources */,
+				146747881ECC4AFE00A914C8 /* ShowViewController.m in Sources */,
 				146B2D731EC04DB400974785 /* PageTitleView.m in Sources */,
 				146337801EC1BA1C007A7440 /* NetWork.m in Sources */,
 				1428B7C61EBCA4F900D072B7 /* LiveViewController.m in Sources */,

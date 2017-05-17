@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,7 @@
                     <navigationItem key="navigationItem" id="6DW-5T-CVe"/>
                     <connections>
                         <segue destination="Ka5-39-d47" kind="show" identifier="" id="rp6-pp-8rx"/>
+                        <segue destination="IL8-sh-hwI" kind="show" identifier="" id="v77-EA-H5b"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCY-uy-br2" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -50,6 +52,38 @@
             </objects>
             <point key="canvasLocation" x="2196" y="-786"/>
         </scene>
+        <!--Show View Controller-->
+        <scene sceneID="9q5-iq-Vv9">
+            <objects>
+                <viewController storyboardIdentifier="ShowViewController" hidesBottomBarWhenPushed="YES" id="IL8-sh-hwI" customClass="ShowViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Zl-Uh-52A"/>
+                        <viewControllerLayoutGuide type="bottom" id="ru1-xa-2dJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lrk-1O-1fR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IzM-7f-RqR" userLabel="close">
+                                <rect key="frame" x="309" y="30" width="40" height="40"/>
+                                <state key="normal" image="talk_close_40x40_"/>
+                                <connections>
+                                    <action selector="clickClose:" destination="IL8-sh-hwI" eventType="touchUpInside" id="7Ao-vV-tCl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IzM-7f-RqR" firstAttribute="top" secondItem="3Zl-Uh-52A" secondAttribute="bottom" constant="10" id="7SL-jd-R0P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IzM-7f-RqR" secondAttribute="trailing" constant="10" id="zBe-F6-DKm"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kh4-7G-UQu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2229.5999999999999" y="-54.422788605697157"/>
+        </scene>
         <!--Item-->
         <scene sceneID="Kap-QI-K8z">
             <objects>
@@ -71,4 +105,7 @@
             <point key="canvasLocation" x="412" y="-785"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="talk_close_40x40_" width="40" height="40"/>
+    </resources>
 </document>

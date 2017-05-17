@@ -6,13 +6,14 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Live View Controller-->
         <scene sceneID="TaA-RX-xqV">
             <objects>
-                <viewController id="tjj-aD-rhk" customClass="LiveViewController" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="tjj-aD-rhk" customClass="LiveViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UlE-hy-hma"/>
                         <viewControllerLayoutGuide type="bottom" id="2OE-t9-3vP"/>
@@ -20,22 +21,79 @@
                     <view key="view" contentMode="scaleToFill" id="8eP-Je-uok">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="2Bc-ZG-MVn">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Q9F-41-kFe">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="fVu-Vl-ULz">
-                                <rect key="frame" x="276" y="7" width="83" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="切换摄像头"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nE-GK-qEr">
+                                <rect key="frame" x="116" y="558" width="143" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZFy-zu-fuq"/>
+                                </constraints>
+                                <state key="normal" title="开始直播">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
-                                    <action selector="toggleCapture:" destination="tjj-aD-rhk" eventType="touchUpInside" id="0De-KW-Jxp"/>
+                                    <action selector="startLive:" destination="tjj-aD-rhk" eventType="touchUpInside" id="jpA-ej-t2b"/>
                                 </connections>
                             </button>
-                            <connections>
-                                <action selector="toggleCapture:" destination="tjj-aD-rhk" id="97I-Ve-Rla"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="状态：未知" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GYh-SU-uJU">
+                                <rect key="frame" x="36" y="80" width="303" height="18"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rF-U4-JPF" userLabel="camera">
+                                <rect key="frame" x="265" y="30" width="40" height="40"/>
+                                <state key="normal" image="camera_change_40x40_"/>
+                                <connections>
+                                    <action selector="toggleCapture:" destination="tjj-aD-rhk" eventType="touchUpInside" id="st2-Up-nVK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hla-YP-FzY" userLabel="close">
+                                <rect key="frame" x="325" y="30" width="40" height="40"/>
+                                <state key="normal" image="talk_close_40x40_"/>
+                                <connections>
+                                    <action selector="exit:" destination="tjj-aD-rhk" eventType="touchUpInside" id="Qgf-gN-RuS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUf-LY-yvM">
+                                <rect key="frame" x="10" y="30" width="127" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="fet-EN-lTg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="智能美颜已开启" image="icon_beautifulface_19x19_"/>
+                                <state key="selected" title="智能美颜已关闭"/>
+                                <connections>
+                                    <action selector="beautyFace:" destination="tjj-aD-rhk" eventType="touchUpInside" id="Exk-BF-86L"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="hla-YP-FzY" firstAttribute="leading" secondItem="9rF-U4-JPF" secondAttribute="trailing" constant="20" id="8QW-s2-jgV"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4nE-GK-qEr" secondAttribute="trailing" constant="100" id="RjC-Ua-eH3"/>
+                            <constraint firstItem="GYh-SU-uJU" firstAttribute="top" secondItem="UlE-hy-hma" secondAttribute="bottom" constant="60" id="dG7-S2-qzf"/>
+                            <constraint firstAttribute="trailing" secondItem="hla-YP-FzY" secondAttribute="trailing" constant="10" id="dtY-IK-wCd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="GYh-SU-uJU" secondAttribute="trailing" constant="20" id="fp9-bC-I0V"/>
+                            <constraint firstItem="2OE-t9-3vP" firstAttribute="top" secondItem="4nE-GK-qEr" secondAttribute="bottom" constant="30" id="jQC-jq-I2Z"/>
+                            <constraint firstItem="9rF-U4-JPF" firstAttribute="top" secondItem="UlE-hy-hma" secondAttribute="bottom" constant="10" id="lLS-JT-4HJ"/>
+                            <constraint firstItem="dUf-LY-yvM" firstAttribute="leading" secondItem="8eP-Je-uok" secondAttribute="leading" constant="10" id="oS9-X6-sv1"/>
+                            <constraint firstItem="GYh-SU-uJU" firstAttribute="leading" secondItem="8eP-Je-uok" secondAttribute="leadingMargin" constant="20" id="qEf-Za-ZlF"/>
+                            <constraint firstItem="4nE-GK-qEr" firstAttribute="leading" secondItem="8eP-Je-uok" secondAttribute="leadingMargin" constant="100" id="w0e-Hq-Z2Z"/>
+                            <constraint firstItem="dUf-LY-yvM" firstAttribute="top" secondItem="UlE-hy-hma" secondAttribute="bottom" constant="10" id="ycH-RT-KzB"/>
+                            <constraint firstItem="hla-YP-FzY" firstAttribute="top" secondItem="UlE-hy-hma" secondAttribute="bottom" constant="10" id="zl7-wZ-o7o"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="2Bc-ZG-MVn"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="beautifulBtn" destination="dUf-LY-yvM" id="zld-YE-FUO"/>
+                        <outlet property="livingBtn" destination="4nE-GK-qEr" id="4CD-WT-bYq"/>
+                        <outlet property="startLiveBtn" destination="4nE-GK-qEr" id="Y4O-sN-fiv"/>
+                        <outlet property="statusLabel" destination="GYh-SU-uJU" id="lgo-Fw-wOx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0W-iC-1z7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,4 +120,9 @@
             <point key="canvasLocation" x="412" y="-107.49625187406298"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="camera_change_40x40_" width="40" height="40"/>
+        <image name="icon_beautifulface_19x19_" width="19" height="19"/>
+        <image name="talk_close_40x40_" width="40" height="40"/>
+    </resources>
 </document>

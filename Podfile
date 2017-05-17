@@ -8,5 +8,5 @@ target 'Live' do
   pod 'AFNetworking'
   pod 'SDWebImage'
   pod 'MJRefresh'
-
+  pod 'LFLiveKit'
 end

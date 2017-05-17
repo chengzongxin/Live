@@ -59,7 +59,7 @@
     
     [moviePlayer setOptionValue:@"0" forKey:@"safe" ofCategory:kIJKFFOptionCategoryFormat];
     
-    [moviePlayer setOptionValue:@"http,https,tls,rtp,tcp,udp,crypto,httpproxy" forKey:@"protocol_whitelist" ofCategory:kIJKFFOptionCategoryFormat];
+    [moviePlayer setOptionValue:@"http,https,tls,rtp,tcp,udp,crypto,httpproxy,rtmp" forKey:@"protocol_whitelist" ofCategory:kIJKFFOptionCategoryFormat];
     
 //    [moviePlayer setOptionValue:@"ijkplayer" forKey:@"user_agent" ofCategory:kIJKFFOptionCategoryFormat];
 
