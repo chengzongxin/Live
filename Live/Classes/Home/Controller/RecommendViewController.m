@@ -267,7 +267,7 @@
 //        MYLog(@"%@",bigDataModel);
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
         ShowViewController *showVc = [story instantiateViewControllerWithIdentifier:@"ShowViewController"];
-        showVc.live_stream_url = @"rtmp://192.168.10.125:1935/rtmplive/room";
+        showVc.live_stream_url = kLiveServer;
 //        [self.navigationController pushViewController:playerVc animated:YES];
         [self presentViewController:showVc animated:YES completion:nil];
     }else if (indexPath.section == 1) { // pretty
@@ -275,7 +275,7 @@
 //        MYLog(@"%@",pretty);
         UIStoryboard *story = [UIStoryboard storyboardWithName:@"Home" bundle:nil];
         ShowViewController *showVc = [story instantiateViewControllerWithIdentifier:@"ShowViewController"];
-        showVc.live_stream_url = @"rtmp://192.168.10.125:1935/rtmplive/room";
+        showVc.live_stream_url = kLiveServer;
 //        [self.navigationController pushViewController:playerVc animated:YES];
         [self presentViewController:showVc animated:YES completion:nil];
     }else{

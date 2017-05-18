@@ -75,7 +75,7 @@
 
 - (void)startLive {
     LFLiveStreamInfo *streamInfo = [LFLiveStreamInfo new];
-    streamInfo.url = @"rtmp://192.168.10.125:1935/rtmplive/room";
+    streamInfo.url = kLiveServer;
 //    streamInfo.streamId = @"stream153";
     self.rtmpUrl = streamInfo.url;
     [self.session startLive:streamInfo];
