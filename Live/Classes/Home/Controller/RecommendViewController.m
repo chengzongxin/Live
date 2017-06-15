@@ -144,7 +144,8 @@
     RefreshHeader *header = [RefreshHeader headerWithRefreshingBlock:^{
         [weakSelf refreshData];
     }];
-    [header setTimeLabelHidden:YES forState:MJRefreshStateRefreshing];
+//    [header setTimeLabelHidden:YES forState:MJRefreshStateRefreshing];
+    header.lastUpdatedTimeLabel.hidden = YES;
     header.ignoredScrollViewContentInsetTop = kCycleViewH+kGameViewH;  // 忽略insets
     self.collectionView.mj_header = header;
     

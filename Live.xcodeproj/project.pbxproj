@@ -13,12 +13,10 @@
 		141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67961EBC723700065D86 /* LaunchScreen.storyboard */; };
 		141D67B21EBC7D7500065D86 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B11EBC7D7500065D86 /* Home.storyboard */; };
 		141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B51EBC7DE900065D86 /* Live.storyboard */; };
-		141D67B81EBC7E2700065D86 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 141D67B71EBC7E2700065D86 /* Profile.storyboard */; };
 		141D67BB1EBC7F1500065D86 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 141D67BA1EBC7F1500065D86 /* MainViewController.m */; };
 		1428B7C01EBCA04A00D072B7 /* UITabBar+Swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7BF1EBCA04900D072B7 /* UITabBar+Swizzling.m */; };
 		1428B7C31EBCA4EF00D072B7 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */; };
 		1428B7C61EBCA4F900D072B7 /* LiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C51EBCA4F900D072B7 /* LiveViewController.m */; };
-		1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1428B7C81EBCA50200D072B7 /* ProfileViewController.m */; };
 		146337611EC17481007A7440 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337601EC17481007A7440 /* RecommendViewController.m */; };
 		146337651EC194F8007A7440 /* RecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 146337631EC194F8007A7440 /* RecommendHeaderView.m */; };
 		146337661EC194F8007A7440 /* RecommendHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 146337641EC194F8007A7440 /* RecommendHeaderView.xib */; };
@@ -54,6 +52,9 @@
 		14A589831EC4521A006E5B32 /* PortraitView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589821EC4521A006E5B32 /* PortraitView.xib */; };
 		14A589861EC45247006E5B32 /* LandScapeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A589851EC45247006E5B32 /* LandScapeView.m */; };
 		14A589881EC45251006E5B32 /* LandScapeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14A589871EC45251006E5B32 /* LandScapeView.xib */; };
+		14B2E41E1EF2908900533D58 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14B2E41D1EF2908900533D58 /* Profile.storyboard */; };
+		14B2E4211EF2909C00533D58 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B2E4201EF2909C00533D58 /* ProfileViewController.m */; };
+		14B2E4241EF293CB00533D58 /* BaseNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B2E4231EF293CB00533D58 /* BaseNavigationController.m */; };
 		14D33E1D1EC43E65006CCA63 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */; };
 		14F5BFCF1ECAD06A00EEFC54 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F5BFCC1ECAD06A00EEFC54 /* UIColor+Extension.m */; };
 		14F5BFD01ECAD06A00EEFC54 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 14F5BFCE1ECAD06A00EEFC54 /* UIView+Extension.m */; };
@@ -87,7 +88,6 @@
 		141D67991EBC723700065D86 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		141D67B11EBC7D7500065D86 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		141D67B51EBC7DE900065D86 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
-		141D67B71EBC7E2700065D86 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		141D67B91EBC7F1500065D86 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		141D67BA1EBC7F1500065D86 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		1428B7BE1EBCA04900D072B7 /* UITabBar+Swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+Swizzling.h"; sourceTree = "<group>"; };
@@ -96,8 +96,6 @@
 		1428B7C21EBCA4EF00D072B7 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		1428B7C41EBCA4F900D072B7 /* LiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveViewController.h; sourceTree = "<group>"; };
 		1428B7C51EBCA4F900D072B7 /* LiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveViewController.m; sourceTree = "<group>"; };
-		1428B7C71EBCA50200D072B7 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		1428B7C81EBCA50200D072B7 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		1463375F1EC17481007A7440 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
 		146337601EC17481007A7440 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
 		146337621EC194F8007A7440 /* RecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHeaderView.h; sourceTree = "<group>"; };
@@ -158,6 +156,11 @@
 		14A589841EC45247006E5B32 /* LandScapeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LandScapeView.h; sourceTree = "<group>"; };
 		14A589851EC45247006E5B32 /* LandScapeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LandScapeView.m; sourceTree = "<group>"; };
 		14A589871EC45251006E5B32 /* LandScapeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LandScapeView.xib; sourceTree = "<group>"; };
+		14B2E41D1EF2908900533D58 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		14B2E41F1EF2909C00533D58 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		14B2E4201EF2909C00533D58 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		14B2E4221EF293CB00533D58 /* BaseNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseNavigationController.h; sourceTree = "<group>"; };
+		14B2E4231EF293CB00533D58 /* BaseNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseNavigationController.m; sourceTree = "<group>"; };
 		14D33E1B1EC43E65006CCA63 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		14D33E1C1EC43E65006CCA63 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		14F5BFCB1ECAD06A00EEFC54 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
@@ -233,8 +236,8 @@
 				1428B7BD1EBCA03E00D072B7 /* Common */,
 				141D67A81EBC7A5F00065D86 /* Main(主要) */,
 				141D67A01EBC7A5F00065D86 /* Home(首页) */,
+				14B2E41B1EF2907300533D58 /* Profile(我的) */,
 				141D67A41EBC7A5F00065D86 /* Live(直播) */,
-				141D67AC1EBC7A5F00065D86 /* Profile(我的) */,
 				146509971EC40D7100CB1BB4 /* Player(播放) */,
 				141D67B01EBC7A5F00065D86 /* Tools(工具) */,
 			);
@@ -365,6 +368,8 @@
 			children = (
 				141D67B91EBC7F1500065D86 /* MainViewController.h */,
 				141D67BA1EBC7F1500065D86 /* MainViewController.m */,
+				14B2E4221EF293CB00533D58 /* BaseNavigationController.h */,
+				14B2E4231EF293CB00533D58 /* BaseNavigationController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -383,41 +388,6 @@
 				146B2D721EC04DB400974785 /* PageTitleView.m */,
 				146B2D741EC0691700974785 /* PageContentView.h */,
 				146B2D751EC0691700974785 /* PageContentView.m */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		141D67AC1EBC7A5F00065D86 /* Profile(我的) */ = {
-			isa = PBXGroup;
-			children = (
-				141D67B71EBC7E2700065D86 /* Profile.storyboard */,
-				141D67AD1EBC7A5F00065D86 /* Controller */,
-				141D67AE1EBC7A5F00065D86 /* Model */,
-				141D67AF1EBC7A5F00065D86 /* View */,
-			);
-			name = "Profile(我的)";
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		141D67AD1EBC7A5F00065D86 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				1428B7C71EBCA50200D072B7 /* ProfileViewController.h */,
-				1428B7C81EBCA50200D072B7 /* ProfileViewController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		141D67AE1EBC7A5F00065D86 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		141D67AF1EBC7A5F00065D86 /* View */ = {
-			isa = PBXGroup;
-			children = (
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -503,6 +473,25 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		14B2E41B1EF2907300533D58 /* Profile(我的) */ = {
+			isa = PBXGroup;
+			children = (
+				14B2E41D1EF2908900533D58 /* Profile.storyboard */,
+				14B2E41C1EF2907300533D58 /* Controller */,
+			);
+			name = "Profile(我的)";
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		14B2E41C1EF2907300533D58 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				14B2E41F1EF2909C00533D58 /* ProfileViewController.h */,
+				14B2E4201EF2909C00533D58 /* ProfileViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3516CD14D739A3BD625B3B32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -585,7 +574,6 @@
 			files = (
 				14F5BFE11ECAD5E500EEFC54 /* Main.storyboard in Resources */,
 				1466F5AB1EC2E6CE00AA238F /* RecommendCycleView.xib in Resources */,
-				141D67B81EBC7E2700065D86 /* Profile.storyboard in Resources */,
 				141D67981EBC723700065D86 /* LaunchScreen.storyboard in Resources */,
 				141D67951EBC723700065D86 /* Assets.xcassets in Resources */,
 				1466F5B31EC3004800AA238F /* CollectionCycleCell.xib in Resources */,
@@ -596,6 +584,7 @@
 				146337661EC194F8007A7440 /* RecommendHeaderView.xib in Resources */,
 				141D67B61EBC7DE900065D86 /* Live.storyboard in Resources */,
 				146337781EC1A8FE007A7440 /* CollectionNormalCell.xib in Resources */,
+				14B2E41E1EF2908900533D58 /* Profile.storyboard in Resources */,
 				1463377D1EC1AEE6007A7440 /* CollectionPrettyCell.xib in Resources */,
 				141D67B21EBC7D7500065D86 /* Home.storyboard in Resources */,
 			);
@@ -660,7 +649,7 @@
 				1463378C1EC1CB02007A7440 /* NSObject+Extension.m in Sources */,
 				149608C51EC5D1FD0031F1F9 /* RefreshHeader.m in Sources */,
 				1428B7C01EBCA04A00D072B7 /* UITabBar+Swizzling.m in Sources */,
-				1428B7C91EBCA50200D072B7 /* ProfileViewController.m in Sources */,
+				14B2E4211EF2909C00533D58 /* ProfileViewController.m in Sources */,
 				146337951EC1D625007A7440 /* HotCareModel.m in Sources */,
 				146B2D761EC0691700974785 /* PageContentView.m in Sources */,
 				141D678D1EBC723700065D86 /* AppDelegate.m in Sources */,
@@ -688,6 +677,7 @@
 				1466F5B21EC3004800AA238F /* CollectionCycleCell.m in Sources */,
 				146337891EC1C443007A7440 /* BIgDataModel.m in Sources */,
 				146747881ECC4AFE00A914C8 /* ShowViewController.m in Sources */,
+				14B2E4241EF293CB00533D58 /* BaseNavigationController.m in Sources */,
 				146B2D731EC04DB400974785 /* PageTitleView.m in Sources */,
 				146337801EC1BA1C007A7440 /* NetWork.m in Sources */,
 				1428B7C61EBCA4F900D072B7 /* LiveViewController.m in Sources */,
